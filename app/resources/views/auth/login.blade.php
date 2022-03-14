@@ -19,6 +19,19 @@
 				</p>
 				<div class="card-body">
 
+					<!-- errorMessage Area-->
+					@error('email')
+						<span class="invalid-feedback @error ('email') error-message @enderror" role="alert">
+							<strong>{{ $message }}</strong>
+						</span>
+					@enderror
+					@error('password')
+						<span class="invalid-feedback @error ('password') error-message @enderror" role="alert">
+							<strong>{{ $message }}</strong>
+						</span>
+					@enderror
+					<!-- errorMessage Area-->
+
 					<form method="POST" action="{{ route('login') }}">
 						@csrf
 
@@ -26,12 +39,6 @@
 							<div class="col-md-6">
 								<input id="email" type="email" class="form-control input-text js-input @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 								<label class="label" for="email">User Name or Email</label>
-
-								@error('email')
-									<span class="invalid-feedback" role="alert">
-										<strong>{{ $message }}</strong>
-									</span>
-								@enderror
 							</div>
 						</div>
 
@@ -39,12 +46,6 @@
 							<div class="col-md-6">
 								<input id="password" type="password" class="form-control input-text js-input @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 								<label class="label" for="password">Password</label>
-
-								@error('password')
-								<span class="invalid-feedback" role="alert">
-										<strong>{{ $message }}</strong>
-									</span>
-								@enderror
 							</div>
 						</div>
 
@@ -72,7 +73,7 @@
 							<div class="col-auto">
 								@if (Route::has('password.request'))
 									<a class="btn btn-link" href="{{ route('password.request') }}">
-										{{ __('パスワードを忘れた方はこちら') }}
+										<span class="btn-text">{{ __('パスワードを忘れた方はこちら') }}</span>
 									</a>
 								@endif
 							</div>

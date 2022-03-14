@@ -3,23 +3,33 @@
 
 /* 鍵ロゴ */
 .login-text {
-	font-size: 1.5rem;
 	margin: 0 auto;
-	max-width: 50%;
 	padding: .5rem;
+	max-width: 50%;
+	font-size: 1.5rem;
 	text-align: center;
 	text-shadow: 12px 10px 0 rgba(0,0,0,0.3);
 	color: #888;
 }
 
+/* ログイン保持ボタン_レイアウト */
+.form-check {
+	margin-left: 20px;
+}
+
 /* Forget Password */
-.btn-link {
+form .btn-link {
+	margin: 1.375rem 0.75rem;
+	padding: 0;
+}
+form .btn-text {
+	display: inline-block;
+	text-decoration: underline;
 	color: #000;
 	transition: .25s;
 }
-.btn-link:hover {
-	transform: rotateX(360deg);
+form .btn-text:hover {
 	color: rgb(130, 130, 130);
+	transform: rotateX(360deg);
 }
-
 
