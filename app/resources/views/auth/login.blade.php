@@ -20,16 +20,18 @@
 				<div class="card-body">
 
 					<!-- errorMessage Area-->
-					@error('email')
-						<span class="invalid-feedback @error ('email') error-message @enderror" role="alert">
-							<strong>{{ $message }}</strong>
-						</span>
-					@enderror
-					@error('password')
-						<span class="invalid-feedback @error ('password') error-message @enderror" role="alert">
-							<strong>{{ $message }}</strong>
-						</span>
-					@enderror
+					<div class="error-area">
+						@error('email')
+							<span class="invalid-feedback @error ('email') error-message @enderror" role="alert">
+								<strong>{{ $message }}</strong>
+							</span>
+						@enderror
+						@error('password')
+							<span class="invalid-feedback @error ('password') error-message @enderror" role="alert">
+								<strong>{{ $message }}</strong>
+							</span>
+						@enderror
+					</div>
 					<!-- errorMessage Area-->
 
 					<form method="POST" action="{{ route('login') }}">
@@ -38,14 +40,14 @@
 						<div class="row mb-4 justify-content-center">
 							<div class="col-md-6">
 								<input id="email" type="email" class="form-control input-text js-input @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-								<label class="label" for="email">User Name or Email</label>
+								<label class="label" for="email">ユーザー名またはメールアドレス</label>
 							</div>
 						</div>
 
 						<div class="row mb-4 justify-content-center">
 							<div class="col-md-6">
 								<input id="password" type="password" class="form-control input-text js-input @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-								<label class="label" for="password">Password</label>
+								<label class="label" for="password">パスワード</label>
 							</div>
 						</div>
 
