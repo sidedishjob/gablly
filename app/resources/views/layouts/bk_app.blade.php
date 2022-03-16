@@ -7,14 +7,10 @@
 	<!-- CSRF Token -->
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 
-	<title>{{ config('app.name', 'gablly') }} - @yield('title')</title>
+	<title>{{ config('app.name', 'Laravel') }}</title>
 
 	<!-- Scripts -->
 	<script src="{{ asset('js/app.js') }}" defer></script>
-	<script src="{{ asset('js/auth.js') }}" defer></script>
-
-	<!-- icon -->
-	<script src="https://kit.fontawesome.com/235a170713.js" crossorigin="anonymous"></script>
 
 	<!-- Fonts -->
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -22,32 +18,24 @@
 
 	<!-- Styles -->
 	<link href="{{ asset('css/app.css') }}" rel="stylesheet">
-	<link href="{{ asset('css/common.css')}}" rel="stylesheet">
-	@yield('css')
-
 </head>
 <body>
 	<div id="app">
-
-		<!-- header -->
-		<nav class="navbar navbar-expand-md navbar-light">
+		<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
 			<div class="container">
-				<a class="navbar-brand" href="{{ url('/') }}" style="color: white; font-weight: bold; font-size: 200%;">
-					<!-- TODO ロゴ画像に設定 -->
-					<!-- <img src="{{ asset('image/logo.png')}} alt="logo""> -->
-					{{ config('app.name', 'gablly') }}
+				<a class="navbar-brand" href="{{ url('/') }}">
+					{{ config('app.name', 'Laravel') }}
 				</a>
-
-				<!-- ハンバーガーメニュー -->
-				<!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
 					<span class="navbar-toggler-icon"></span>
-				</button> -->
+				</button>
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<!-- Left Side Of Navbar -->
 					<ul class="navbar-nav me-auto">
+
 					</ul>
-					
+
 					<!-- Right Side Of Navbar -->
 					<ul class="navbar-nav ms-auto">
 						<!-- Authentication Links -->
@@ -83,43 +71,13 @@
 							</li>
 						@endguest
 					</ul>
-
 				</div>
 			</div>
 		</nav>
-		<!-- header -->
 
-		<!-- main contents -->
 		<main class="py-4">
 			@yield('content')
 		</main>
-		<!-- main contents -->
-
-		<!-- footer -->
-		<footer>
-			<!-- TODO ロゴ画像に設定 -->
-			<!-- <img src="{{ asset('image/logo.png')}}" alt="logo" class="justify-content-center"> -->
-			<p style="font-size: large; color: black;">gablly</p><!-- logo画像入れたら削除 -->
-			<ul class="nav justify-content-center">
-				<li class="nav-item">
-					<a class="nav-link" href="{{ url('/') }}"><span class="btn-text">トップページへ<span class="mrg-15">&gt;</span></span></a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="{{ route('login') }}"><span class="btn-text">ログイン<span class="mrg-15">&gt;</span></span></a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="{{ route('register') }}"><span class="btn-text">会員登録<span class="mrg-15">&gt;</span></span></a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="{{ route('contact') }}"><span class="btn-text">お問い合わせ<span class="mrg-15">&gt;</span></span></a>
-				</li>
-			</ul>
-			<div class="container justify-content-center">
-				<p>© 2022 gablly</p>
-			</div>
-		</footer>
-		<!-- footer -->
-
 	</div>
 </body>
 </html>
