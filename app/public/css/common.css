@@ -1,0 +1,97 @@
+/* 共通設定 */
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+html, body {
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	/* background-image: url(../image/main_background.jpg); */
+	background-image: url(../image/sky.jpg);
+	font-family: 'ヒラギノ明朝 Pro W3', 'Hiragino Mincho Pro', '游明朝','Yu Mincho', '游明朝体', 'YuMincho','ＭＳ Ｐ明朝', 'MS PMincho', serif;}
+
+li {
+	list-style: none;
+}
+
+img {
+	width: 100%;
+	height: 100%;
+}
+
+/* footer */
+footer {
+	position: absolute;
+	bottom: 0;
+	padding-bottom: 5px;
+	width: 100%;
+	line-height: 20px;
+	font-size: 80%;
+	text-align: center;
+}
+
+/* PC footer */
+@media screen and (min-width:1024px) {
+	footer {
+		font-size: 100%;
+	}
+}
+
+footer .nav {
+	margin: 10px 0;
+}
+
+footer p {
+	display: inline-block;
+	margin: 5px;
+	font-weight: bold;
+	color: black;
+}
+
+footer .nav-link {
+	margin: 8px 50px;
+	padding: 0;
+}
+
+footer .btn-text {
+	display: inline-block;
+	font-weight: bold;
+	color: rgb(0, 0, 0);
+	transition: .25s;
+}
+
+/* PC footer */
+@media screen and (min-width:1024px) {
+	footer .nav-link {
+		margin: 16px 50px;
+	}
+}
+
+.btn-text:hover  {
+	color: rgb(130, 130, 130);
+	transform: rotateX(360deg);
+}
+
+/* common */
+.mrg-15 {
+	margin-left: 15px;
+}
+
+
+
+
+/* test */
+.card {
+	/* opacity: 0.1; */
+	background-color: transparent;
+	border: none;
+}
+
+.card-header {
+	border: none;
+}
+

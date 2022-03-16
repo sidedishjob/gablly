@@ -14,7 +14,7 @@ services:
   app:
     build: ./docker/php
     volumes:
-     - .:/var/www/html
+     - .:/var/www/html:delegated
     depends_on:
       - mysql
 
