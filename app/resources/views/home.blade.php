@@ -15,7 +15,7 @@
 						</div>
 					@endif
 
-					{{ __('You are logged in!') }}
+					<a class="" href="{{ route('about') }}">{{ __('You are logged in!') }}</a>
 				</div>
 			</div>
 		</div>

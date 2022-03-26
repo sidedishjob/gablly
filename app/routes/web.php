@@ -21,6 +21,10 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/about', function() {
+	return view('about');
+})->name('about');
+
 #TODOコントローラを通すかは要検討
 Route::get('/contact', function() {
 	return view('contacts.contact');
