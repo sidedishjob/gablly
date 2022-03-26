@@ -5,15 +5,12 @@
 	padding: 0px;
 }
 
-html, body {
-	height: 100%;
-	width: 100%;
-}
-
 body {
+	position: relative;
 	/* background-image: url(../image/main_background.jpg); */
 	background-image: url(../image/sky.jpg);
-	font-family: 'ヒラギノ明朝 Pro W3', 'Hiragino Mincho Pro', '游明朝','Yu Mincho', '游明朝体', 'YuMincho','ＭＳ Ｐ明朝', 'MS PMincho', serif;}
+	font-family: 'ヒラギノ明朝 Pro W3', 'Hiragino Mincho Pro', '游明朝','Yu Mincho', '游明朝体', 'YuMincho','ＭＳ Ｐ明朝', 'MS PMincho', serif;
+}
 
 li {
 	list-style: none;
@@ -26,6 +23,11 @@ img {
 
 .mrg-15 {
 	margin-left: 15px;
+}
+
+#app {
+	min-height: 100vh;
+	padding-bottom: 170px;
 }
 /* common */
 
@@ -46,7 +48,8 @@ img {
 footer {
 	position: absolute;
 	bottom: 0;
-	padding-bottom: 5px;
+	padding: 10px 0;
+	height: 170px;
 	width: 100%;
 	line-height: 20px;
 	font-size: 80%;
@@ -56,6 +59,7 @@ footer {
 /* PC footer */
 @media screen and (min-width:1024px) {
 	footer {
+		padding-top: 20px;
 		font-size: 100%;
 	}
 }
