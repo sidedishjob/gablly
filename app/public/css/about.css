@@ -1,0 +1,223 @@
+/* about */
+/* common */
+body {
+	background-image: none;
+}
+
+.box {
+	/* padding: 40px;
+	display: flex; */
+	position: relative;
+	height: 100vh;
+	width: 100%;
+	opacity: 0;
+	visibility: hidden;
+	transition: 2s;
+	/* transform: translateY(30px); */
+	background: url(../image/about_bg-wall_2.jpg);
+	background-size: cover;
+	/* border-top-right-radius: 50% 10%;
+	border-bottom-left-radius: 50% 10%;
+	border-top-right-radius: 50% 10%;
+	border-bottom-right-radius: 50% 10%; */
+}
+
+.active {
+	opacity: 1;
+	visibility: visible;
+	/* transform: translateY(30px); */
+}
+
+.text-item {
+	position: absolute;
+	display: inline-block;
+	/* font-size: 1.5vw; */
+	letter-spacing: 0.3rem;
+}
+/* PC common .text-item */
+@media screen and (min-width:1024px) {
+	.text-item {
+		font-size: calc(1.26rem + 0.12vw) !important;
+	}
+}
+
+
+/* common */
+
+/* section-1 */
+#box1 {
+	background: url(../image/about_banner_background.jpg);
+	border-top-right-radius: 50% 10%;
+	border-bottom-right-radius: 50% 10%;
+}	
+
+.door-container {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.door-item {
+	height: 20%;
+	width: 15%;
+}
+/* section-1 */
+
+
+/* section-2 */
+#box2 {
+	border-top-left-radius: 50% 10%;
+	border-bottom-left-radius: 50% 10%;
+}
+
+.-text-1 {
+	top: 15%;
+	left: 13%;
+}
+
+.-text-2 {
+	top: 25%;
+	left: 60%;
+}
+/* PC セクション2 .-text-2 */
+@media screen and (min-width:1024px) {
+	.-text-2 {
+		top: 25%;
+		left: 70%;
+	}
+}
+
+.-text-3 {
+	top: 35%;
+	left: 30%;
+}
+
+.-text-4 {
+	top: 60%;
+	left: 60%;
+}
+
+.-text-5 {
+	top: 75%;
+	left: 15%;
+}
+
+/* section-2 */
+
+
+/* section-3 */
+#box3 {
+	background-color: gray;
+	border-top-right-radius: 50% 10%;
+	border-bottom-right-radius: 50% 10%;
+}
+/* section-3 */
+
+
+/* section-4 */
+#box4 {
+	border-top-left-radius: 50% 10%;
+	border-bottom-left-radius: 50% 10%;
+}
+
+.-title-text {
+	top: 20%;
+	left: 5%;
+}
+/* PC セクション4 .logo-title */
+@media screen and (min-width:1024px) {
+	.-title-text {
+		left: 15%;
+	}
+}
+
+.-title-text-en {
+	margin-left: 65%;
+	display: inline-block;
+	letter-spacing: 0.1rem;
+}
+/* PC セクション4 .-title-text-en */
+@media screen and (min-width:1024px) {
+	.-title-text-en {
+		margin-left: 80%;
+	}
+}
+
+.logo-item {
+	position: absolute;
+	top: 60%;
+	left: 60%;
+	display: inline-block;
+}
+/* PC セクション4 .logo-item */
+@media screen and (min-width:1024px) {
+	.logo-item {
+		left: 70%;
+	}
+}
+
+
+/* section-4 */
+
+
+/* section-5 */
+#box5 {
+	background-color: gray;
+	border-top-right-radius: 50% 10%;
+	border-bottom-right-radius: 50% 10%;
+}
+/* section-5 */
+
+
+/* section-6 */
+#box6 {
+	border-top-left-radius: 50% 10%;
+	border-bottom-left-radius: 50% 10%;
+}
+
+.text-body {
+	position: absolute;
+	top: 10%;
+	left: 10%;
+	line-height: 1;
+	letter-spacing: 5px;
+	font-size: 1vw;
+}
+/* PC セクション6 .text-body */
+@media screen and (min-width: 1024px) {
+	.text-body {
+		left: 15%;
+		line-height: 1.3;
+		letter-spacing: 12px;
+	}
+}
+
+.text-body p {
+	margin-bottom: 5rem;
+}
+
+.link-item {
+	top: 75%;
+	left: 70%;
+	position: absolute;
+}
+
+/* 会員登録リンクアニメーション */
+.link-item a {
+	padding: 0 20px;
+	background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 50%, rgb(147, 147, 147) 50%);
+	background-position: 0 0;
+	background-size: 200% auto;
+	transition: .3s;
+	font-weight: bold;
+	font-size: 1.5vw;
+	letter-spacing: 5px;
+}
+
+.link-item a:hover {
+	background-position: -100% 0;
+	color: #fff;
+}
+
+/* section-6 */

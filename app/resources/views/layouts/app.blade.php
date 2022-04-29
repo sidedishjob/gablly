@@ -12,6 +12,7 @@
 	<!-- Scripts -->
 	<script src="{{ asset('js/app.js') }}" defer></script>
 	<script src="{{ asset('js/auth.js') }}" defer></script>
+	@yield('js')
 
 	<!-- icon -->
 	<script src="https://kit.fontawesome.com/235a170713.js" crossorigin="anonymous"></script>
@@ -90,7 +91,7 @@
 		<!-- header -->
 
 		<!-- main contents -->
-		<main class="py-4">
+		<main class="main">
 			@yield('content')
 		</main>
 		<!-- main contents -->
