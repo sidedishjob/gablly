@@ -74,10 +74,25 @@
 
 <section id="box6" class="box">
 	<div class="container">
-		<div class="door-container">
-			<div class="door-item">
-				<img src="{{ asset('image/about_door.png') }}" alt="door">
-			</div>
+		<div class="text-body">
+			<p>
+				一つとして同じのない<br><br>
+				あなたの完全オリジナル<br><br>
+				あなたにしか作れない<br><br>
+				あなたの記憶を表現した美術館<br><br>
+				人生のギャラリー<br><br>
+				etc...
+			</p>
+			<p>
+				山  人  絵  植物  食  建築<br><br>
+				どんな展示にしてもいい
+			</p>
+			<p>
+				統一されているのもよし、バラバラでもよし
+			</p>
+		</div>
+		<div class="link-item">
+			<a class="btn" href="{{ route('register') }}">会員登録</a>
 		</div>
 	</div>
 </section>
