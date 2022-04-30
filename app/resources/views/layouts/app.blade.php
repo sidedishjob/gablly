@@ -105,12 +105,14 @@
 				<li class="nav-item">
 					<a class="nav-link" href="{{ url('/') }}"><span class="btn-text">トップページへ<span class="mrg-15">&gt;</span></span></a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="{{ route('login') }}"><span class="btn-text">ログイン<span class="mrg-15">&gt;</span></span></a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="{{ route('register') }}"><span class="btn-text">会員登録<span class="mrg-15">&gt;</span></span></a>
-				</li>
+				@guest
+					<li class="nav-item">
+						<a class="nav-link" href="{{ route('login') }}"><span class="btn-text">ログイン<span class="mrg-15">&gt;</span></span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ route('register') }}"><span class="btn-text">会員登録<span class="mrg-15">&gt;</span></span></a>
+					</li>
+				@endguest
 				<li class="nav-item">
 					<a class="nav-link" href="{{ route('contact') }}"><span class="btn-text">お問い合わせ<span class="mrg-15">&gt;</span></span></a>
 				</li>

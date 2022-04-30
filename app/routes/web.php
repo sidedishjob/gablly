@@ -13,20 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-	return view('about');
-});
+Route::get('/', [App\Http\Controllers\TopController::class, 'index'])->name('top');
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// Route::get('/about', function() {
-// 	return view('about');
-// })->name('about');
+Route::get('/about', function() {
+	return view('about');
+})->name('about');
 
 #TODOコントローラを通すかは要検討
 Route::get('/contact', function() {
 	return view('contacts.contact');
 })->name('contact');
+
 
