@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,4 +29,12 @@ Route::get('/contact', function() {
 	return view('contacts.contact');
 })->name('contact');
 
+// Route::get('/post', function() {
+// 	return view('posts.post');
+// })->name('post');
+
+Route::resource('posts', PostController::class, ['only' => ['index', 'show', 'create', 'store']]);
+// Route::get('posts/edit/{id}', 'PostController@edit');
+// Route::post('posts/edit/{id}', 'PostController@update');
+// Route::post('posts/delete/{id}', 'PostController@delete');
 

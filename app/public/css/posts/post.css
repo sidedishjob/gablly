@@ -1,0 +1,31 @@
+textarea.input-text {
+	resize: none;
+	height: 30vh;
+}
+
+/* テキストエリアのラベル位置調整 */
+.input-text:focus + .label-body, .input-text.not-empty + .label-body {
+	transform: translateY(-29vh);
+}
+/* テキストエリアのラベル位置調整 */
+
+.input-group {
+	margin-bottom: 2.5rem;
+}
+
+/* 画像周り */
+.upload-label {
+	margin: 1em 0; /* まわりの余白 */
+	margin-left: 1em !important;
+	border-radius: 2.5em !important; /* 角の丸み */
+}
+/* inputは隠す */
+.upload-label input {
+	display: none;
+}
+#image_prev {
+	max-height: 300px;
+	max-width: 300px;
+}
+/* 画像周り */
+
