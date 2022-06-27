@@ -15,17 +15,17 @@
 					<!-- errorMessage Area-->
 					<div class="error-area">
 						@error('user_name')
-							<span class="invalid-feedback @error ('user_name') error-message @enderror" role="alert">
+							<span class="invalid-feedback d-block @error ('user_name') error-message @enderror" role="alert">
 								<strong>{{ $message }}</strong>
 							</span>
 						@enderror
 						@error('email')
-							<span class="invalid-feedback @error ('email') error-message @enderror" role="alert">
+							<span class="invalid-feedback d-block @error ('email') error-message @enderror" role="alert">
 								<strong>{{ $message }}</strong>
 							</span>
 						@enderror
 						@error('password')
-							<span class="invalid-feedback @error ('password') error-message @enderror" role="alert">
+							<span class="invalid-feedback d-block @error ('password') error-message @enderror" role="alert">
 								<strong>{{ $message }}</strong>
 							</span>
 						@enderror

@@ -67,19 +67,11 @@
 						@else
 							<li class="nav-item dropdown">
 								<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-									{{ Auth::user()->name }}
+									{{ Auth::user()->user_name }}
 								</a>
 
 								<div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-									<a class="dropdown-item" href="{{ route('logout') }}"
-									   onclick="event.preventDefault();
-													 document.getElementById('logout-form').submit();">
-										{{ __('Logout') }}
-									</a>
-
-									<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-										@csrf
-									</form>
+									<a class="dropdown-item" href="{{ route('posts.create') }}">新規投稿</a>
 								</div>
 							</li>
 						@endguest
@@ -105,14 +97,22 @@
 				<li class="nav-item">
 					<a class="nav-link" href="{{ url('/') }}"><span class="btn-text">トップページへ<span class="mrg-15">&gt;</span></span></a>
 				</li>
-				@guest
+				@if (Auth::check())
+					<li class="nav-item">
+						<a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><span class="btn-text">ログアウト<span class="mrg-15">&gt;</span></span></a>
+
+						<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+							@csrf
+						</form>
+					</li>
+				@else
 					<li class="nav-item">
 						<a class="nav-link" href="{{ route('login') }}"><span class="btn-text">ログイン<span class="mrg-15">&gt;</span></span></a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="{{ route('register') }}"><span class="btn-text">会員登録<span class="mrg-15">&gt;</span></span></a>
 					</li>
-				@endguest
+				@endif
 				<li class="nav-item">
 					<a class="nav-link" href="{{ route('contact') }}"><span class="btn-text">お問い合わせ<span class="mrg-15">&gt;</span></span></a>
 				</li>
