@@ -4,7 +4,6 @@
 <script src="{{ asset('js/post.js') }}" defer></script>
 @endsection
 @section('css')
-{{-- <link href="{{ asset('css/auth/common.css')}}" rel="stylesheet"> --}}
 <link href="{{ asset('css/posts/post.css')}}" rel="stylesheet">
 @endsection
 
@@ -64,7 +63,7 @@
 
 						<div class="row mb-0 justify-content-center">
 							<div class="col-auto">
-								<button type="submit" class="btn btn-outline-dark">
+								<button type="button" onclick="history.back()" class="btn btn-outline-dark">
 									{{ __('キャンセル') }}
 								</button>
 								<button type="submit" class="btn btn-outline-dark">
