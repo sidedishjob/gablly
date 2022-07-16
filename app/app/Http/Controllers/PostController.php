@@ -8,20 +8,33 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Log;
 
 class PostController extends Controller
 {
+
+	/**
+	 * Create a new controller instance.
+	 *
+	 * @return void
+	 */
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
+
 	/**
 	 * Display a listing of the resource.
+	 * 投稿一覧画面
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index()
 	{
-		$posts = Post::all();
+		$posts = DB::table('posts')->where('user_id', Auth::id())->get();
+
 		return view('posts.top', ['posts' => $posts]);
-		// return view('posts.index', ['posts' => $posts]);
 	}
 
 	/**
@@ -36,6 +49,7 @@ class PostController extends Controller
 
 	/**
 	 * Store a newly created resource in storage.
+	 * 投稿新規作成画面
 	 *
 	 * @param  \Illuminate\Http\Request  $request
 	 * @return \Illuminate\Http\Response
@@ -94,9 +108,12 @@ class PostController extends Controller
 	 * @param  \App\Models\Post  $post
 	 * @return \Illuminate\Http\Response
 	 */
-	public function edit(Post $post)
+	public function edit($id)
 	{
-		//
+		Log::info('edit----------------------------------');
+		$post = \App\Models\Post::findOrFail($id);
+
+		return view('posts.edit',['post' => $post]);
 	}
 
 	/**

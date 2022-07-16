@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\TopController::class, 'index'])->name('top');
+//ドメインでアクセスしてきた時用（http://gablly.com/）
+Route::get('/', [App\Http\Controllers\PostController::class, 'index'])->name('top');
 
 Auth::routes();
 
@@ -34,7 +35,7 @@ Route::get('/contact', function() {
 // })->name('post');
 
 Route::resource('posts', PostController::class, ['only' => ['index', 'show', 'create', 'store']]);
-// Route::get('posts/edit/{id}', 'PostController@edit');
+Route::get('posts/edit/{id}', [PostController::class, 'edit'])->name('posts.edit');
 // Route::post('posts/edit/{id}', 'PostController@update');
 // Route::post('posts/delete/{id}', 'PostController@delete');
 

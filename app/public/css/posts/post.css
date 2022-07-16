@@ -29,3 +29,196 @@ textarea.input-text {
 }
 /* 画像周り */
 
+
+/* 一覧画面 */
+.post-item img {
+	max-height: 300px;
+	max-width: 500px;
+	height: 100%;
+	width: auto;
+}
+
+.text-title {
+	text-align: center;
+}
+
+
+/* 画像スライダー設定 */
+/* コンテナー */
+/* スライド */
+/* .infinite-slider .swiper-slide {
+	height: 320px !important;
+	width: auto !important;
+} */
+
+/* スライド内の画像 */
+/* .infinite-slider .swiper-slide img {
+	width: auto;
+	height: 100%;
+}
+
+.slide {
+	width: 36em;
+	background-color: rgba(221, 213, 213, 0.1);
+	border-radius: 10px;
+}
+
+/* スライド ホバー時 */
+/* .swiper-wrapper:hover a:not(:hover) {
+	opacity: .2;
+}
+.swiper-wrapper:hover a {
+	transition: 5000ms;
+} */
+
+/* スライド */
+
+:root {
+	--easing: cubic-bezier(.2, 1, .2, 1);
+	--transition: .8s var(--easing);
+	--color-theme: #f5695f;
+	--color-theme-darken: #f12617;
+	--box-shadow: .8rem .8rem 1.2rem rgba(0, 0, 0, .05), -.8rem -.8rem 1.2rem rgb(97, 97, 97);
+	--box-shadow-hover: 1rem 1rem 1.5rem rgba(0, 0, 0, .08), -1rem -1rem 1.5rem rgb(97, 97, 97);
+	--box-shadow-inset: inset .8rem .8rem 1.2rem rgba(0, 0, 0, .05), inset -.8rem -.8rem 1.2rem rgb(97, 97, 97);
+	--box-shadow-dark: .8rem .8rem 1.2rem rgba(0, 0, 0, .1), -.8rem -.8rem 1.2rem rgba(rgb(97, 97, 97),.2);
+}
+
+
+
+.slide-media,
+.thumb-media {
+  position: relative;
+  overflow: hidden;
+}
+.slide-media img,
+.thumb-media img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+	 object-fit: cover;
+}
+
+.card {
+	overflow: hidden;
+}
+.card .swiper {
+	overflow: visible;
+}
+.card .swiper-wrapper {
+	-webkit-transition-timing-function: linear !important;
+			transition-timing-function: linear !important;
+}
+.card .swiper-slide {
+	transition-duration: 1.5ms;
+	width: max-content;
+}
+.card .slide {
+	overflow: hidden;
+	width: 30em;
+	background-color: rgba(221, 213, 213, 0.1);
+	border-radius: 4px;
+	-webkit-box-shadow: var(--box-shadow);
+			box-shadow: var(--box-shadow);
+}
+.card .slide-media {
+	padding-top: 62.5%;
+}
+.card .slide-media img {
+	object-fit: contain;
+}
+.card .slide-content {
+	padding: 2.2rem;
+}
+.card .slide-date {
+	font-size: 1.2rem;
+	line-height: 1;
+	display: block;
+	color: var(--color-theme);
+}
+.card .slide-title {
+	line-height: 1.6;
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	height: 3.2em;
+	margin-top: 1.6rem;
+	font-size: 1.6rem;
+	margin: 0;
+	padding: 0;
+}
+
+
+
+@media only screen and (max-width: 1024px) {
+	html {
+	-webkit-text-size-adjust: 100%;
+	}
+	.l-inner {
+	padding: 0 4rem;
+	}
+	.pc {
+	display: none !important;
+	}
+}
+
+@media only screen and (max-width: 599px) {
+	html {
+	font-size: 50%;
+	}
+	.pc-tab {
+	display: none !important;
+	}
+	.card .slide {
+	width: 24rem;
+	}
+}
+
+@media only screen and (min-width: 1025px) {
+	/* .tab-sp {
+	display: none !important;
+	}
+	.swiper-button-prev::before, .swiper-button-next::before {
+	-webkit-transition: var(--transition);
+	transition: var(--transition);
+	}
+	.swiper-button-prev:hover::before, .swiper-button-next:hover::before {
+	-webkit-transform: scale(1.2);
+			transform: scale(1.2);
+	} */
+	.card .slide {
+	-webkit-transition: var(--transition);
+	transition: var(--transition);
+	}
+	.card .slide img {
+	-webkit-transition: var(--transition);
+	transition: var(--transition);
+	height: calc(100% + 16px);
+	-webkit-transform: translateY(-16px);
+			transform: translateY(-16px);
+	}
+	.card .slide:hover {
+	-webkit-transform: translateY(-16px);
+			transform: translateY(-16px);
+	-webkit-box-shadow: var(--box-shadow-hover);
+			box-shadow: var(--box-shadow-hover);
+	}
+	.card .slide:hover img {
+	-webkit-transform: translateY(0);
+			transform: translateY(0);
+	}
+	.card .swiper:hover .slide:not(:hover) {
+	opacity: 0.3;
+	}
+}
+
+@media only screen and (min-width: 600px) {
+	.sp {
+	display: none !important;
+	}
+}
+
