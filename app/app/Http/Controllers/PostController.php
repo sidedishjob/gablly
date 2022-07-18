@@ -6,11 +6,7 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
-use Dotenv\Exception\ValidationException;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Log;
 
 class PostController extends Controller
 {
@@ -144,8 +140,6 @@ class PostController extends Controller
 
 		//保存（更新）
 		$post->save();
-
-		// return redirect()->to('posts');
 	}
 
 	/**
@@ -161,14 +155,11 @@ class PostController extends Controller
 
 		//論理削除実行（deleted_atを更新）
 		Post::findOrFail($id)->delete();
-
-
-		// return redirect()->to('posts');
 	}
 
 	/**
 	 * 
-	 * 更新または削除判定
+	 * 更新または削除の判定
 	 *
 	 * @return void
 	 */

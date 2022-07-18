@@ -30,10 +30,6 @@ Route::get('/contact', function() {
 	return view('contacts.contact');
 })->name('contact');
 
-// Route::get('/post', function() {
-// 	return view('posts.post');
-// })->name('post');
-
 Route::resource('posts', PostController::class, ['only' => ['index', 'show', 'create', 'store']]);
 Route::get('posts/edit/{id}', [PostController::class, 'edit'])->name('posts.edit');
 Route::post('posts/update', [PostController::class, 'updateOrDelete'])->name('posts.update');
