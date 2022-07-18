@@ -50,6 +50,12 @@ img {
 	margin-top: 80px;
 }
 
+.error-area {
+	background-color: rgba(125, 42, 42, 0.3);
+	border: solid;
+	border-radius: 5px;
+}
+
 /* 部品 */
 /* 入力欄 */
 .form-control {

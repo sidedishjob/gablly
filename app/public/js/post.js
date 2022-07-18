@@ -44,7 +44,7 @@
 // 	});
 // });
 
-
+// スライダー用JS
 // 画像スライダー
 const mySpeed = 20000;
 const slideLength = document.querySelectorAll('.card .swiper-slide').length;
@@ -88,3 +88,4 @@ const initSwiper = () => {
 window.addEventListener('load', function(){
   initSwiper();
 });
+// スライダー用JS

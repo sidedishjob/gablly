@@ -13,23 +13,25 @@
 				<div class="card-body">
 
 					<!-- errorMessage Area-->
-					<div class="error-area">
-						@error('user_name')
-							<span class="invalid-feedback d-block @error ('user_name') error-message @enderror" role="alert">
-								<strong>{{ $message }}</strong>
-							</span>
-						@enderror
-						@error('email')
-							<span class="invalid-feedback d-block @error ('email') error-message @enderror" role="alert">
-								<strong>{{ $message }}</strong>
-							</span>
-						@enderror
-						@error('password')
-							<span class="invalid-feedback d-block @error ('password') error-message @enderror" role="alert">
-								<strong>{{ $message }}</strong>
-							</span>
-						@enderror
-					</div>
+					@if($errors->any())
+						<div class="mb-5 pt-1 pb-1 error-area text-center">
+							@error('user_name')
+								<span class="invalid-feedback d-block @error ('user_name') error-message @enderror" role="alert">
+									<strong>{{ $message }}</strong>
+								</span>
+							@enderror
+							@error('email')
+								<span class="invalid-feedback d-block @error ('email') error-message @enderror" role="alert">
+									<strong>{{ $message }}</strong>
+								</span>
+							@enderror
+							@error('password')
+								<span class="invalid-feedback d-block @error ('password') error-message @enderror" role="alert">
+									<strong>{{ $message }}</strong>
+								</span>
+							@enderror
+						</div>
+					@endif
 					<!-- errorMessage Area-->
 
 					<form method="POST" action="{{ route('register') }}">
@@ -78,7 +80,7 @@
 						<div class="row mb-0 justify-content-center">
 							<div class="col-auto">
 								<button type="submit" class="btn btn-outline-dark">
-									{{ __('登録') }}
+									{{ __('登　録') }}
 								</button>
 							</div>
 						</div>

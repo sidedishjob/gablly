@@ -16,23 +16,25 @@
 				<div class="card-body">
 
 					<!-- errorMessage Area-->
-					<div class="error-area">
-						@error('title')
-							<span class="invalid-feedback d-block @error ('title') error-message @enderror" role="alert">
-								<strong>{{ $message }}</strong>
-							</span>
-						@enderror
-						@error('body')
-							<span class="invalid-feedback d-block @error ('body') error-message @enderror" role="alert">
-								<strong>{{ $message }}</strong>
-							</span>
-						@enderror
-						@error('image_path')
-							<span class="invalid-feedback d-block  @error ('image_path') error-message @enderror" role="alert">
-								<strong>{{ $message }}</strong>
-							</span>
-						@enderror
-					</div>
+					@if($errors->any())
+						<div class="mb-5 pt-1 pb-1 error-area text-center">
+							@error('title')
+								<span class="invalid-feedback d-block @error ('title') error-message @enderror" role="alert">
+									<strong>{{ $message }}</strong>
+								</span>
+							@enderror
+							@error('body')
+								<span class="invalid-feedback d-block @error ('body') error-message @enderror" role="alert">
+									<strong>{{ $message }}</strong>
+								</span>
+							@enderror
+							@error('image_path')
+								<span class="invalid-feedback d-block  @error ('image_path') error-message @enderror" role="alert">
+									<strong>{{ $message }}</strong>
+								</span>
+							@enderror
+						</div>
+					@endif
 					<!-- errorMessage Area-->
 
 					<form method="POST" action="/posts" enctype="multipart/form-data">
@@ -66,8 +68,8 @@
 								<button type="button" onclick="history.back()" class="btn btn-outline-dark">
 									{{ __('キャンセル') }}
 								</button>
-								<button type="submit" class="btn btn-outline-dark">
-									{{ __('投稿') }}
+								<button type="submit" class="ms-3 btn btn-outline-dark">
+									{{ __('投　稿') }}
 								</button>
 							</div>
 						</div>
