@@ -6,6 +6,7 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
+use Dotenv\Exception\ValidationException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -26,13 +27,13 @@ class PostController extends Controller
 
 	/**
 	 * Display a listing of the resource.
-	 * 投稿一覧画面
+	 * 投稿一覧画面表示
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index()
 	{
-		$posts = DB::table('posts')->where('user_id', Auth::id())->get();
+		$posts = Post::where('user_id', Auth::id())->get();
 
 		return view('posts.top', ['posts' => $posts]);
 	}
@@ -49,7 +50,7 @@ class PostController extends Controller
 
 	/**
 	 * Store a newly created resource in storage.
-	 * 投稿新規作成画面
+	 * 投稿新規作成画面表示
 	 *
 	 * @param  \Illuminate\Http\Request  $request
 	 * @return \Illuminate\Http\Response
@@ -104,39 +105,84 @@ class PostController extends Controller
 
 	/**
 	 * Show the form for editing the specified resource.
+	 * 投稿編集画面表示
 	 *
 	 * @param  \App\Models\Post  $post
 	 * @return \Illuminate\Http\Response
 	 */
 	public function edit($id)
 	{
-		Log::info('edit----------------------------------');
-		$post = \App\Models\Post::findOrFail($id);
+		$post = Post::findOrFail($id);
 
 		return view('posts.edit',['post' => $post]);
 	}
 
 	/**
 	 * Update the specified resource in storage.
+	 * 投稿更新処理
 	 *
 	 * @param  \Illuminate\Http\Request  $request
-	 * @param  \App\Models\Post  $post
 	 * @return \Illuminate\Http\Response
 	 */
-	public function update(Request $request, Post $post)
+	public function update(Request $request)
 	{
-		//
+		$id = $request->id;
+
+		//レコードを検索
+		$post = Post::findOrFail($id);
+
+		//楽観的排他制御（version）
+		if (!($request->version == $post->version)) {
+			//バージョン番号が一致しない場合、エラーメッセージを付与して編集画面に戻す
+			return redirect()->back()->with('exclusive_lock_error', '変更を保存できません。ページの再読込お願いします。');
+		}
+
+		//入力値を設定
+		$post->title = $request->title;
+		$post->body = $request->body;
+		$post->version = $post->version + 1;
+
+		//保存（更新）
+		$post->save();
+
+		// return redirect()->to('posts');
 	}
 
 	/**
 	 * Remove the specified resource from storage.
+	 * 投稿削除処理
 	 *
 	 * @param  \App\Models\Post  $post
 	 * @return \Illuminate\Http\Response
 	 */
-	public function destroy(Post $post)
+	public function destroy(Request $request)
 	{
-		//
+		$id = $request->id;
+
+		//論理削除実行（deleted_atを更新）
+		Post::findOrFail($id)->delete();
+
+
+		// return redirect()->to('posts');
+	}
+
+	/**
+	 * 
+	 * 更新または削除判定
+	 *
+	 * @return void
+	 */
+	public function updateOrDelete(Request $request)
+	{
+		if ($request->has('update')) {
+			//更新処理
+			$this->update($request);
+		} else if ($request->has('delete')) {
+			//削除処理
+			$this->destroy($request);
+		}
+
+		return redirect()->to('posts');
 	}
 
 }

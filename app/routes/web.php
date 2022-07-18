@@ -36,6 +36,5 @@ Route::get('/contact', function() {
 
 Route::resource('posts', PostController::class, ['only' => ['index', 'show', 'create', 'store']]);
 Route::get('posts/edit/{id}', [PostController::class, 'edit'])->name('posts.edit');
-// Route::post('posts/edit/{id}', 'PostController@update');
-// Route::post('posts/delete/{id}', 'PostController@delete');
+Route::post('posts/update', [PostController::class, 'updateOrDelete'])->name('posts.update');
 
