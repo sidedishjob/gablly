@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'トップ')
+@section('title', 'ABOUT')
 @section('js')
 <script src="{{ asset('js/common.js') }}" defer></script>
 @endsection

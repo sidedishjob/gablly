@@ -20,18 +20,20 @@
 				<div class="card-body">
 
 					<!-- errorMessage Area-->
-					<div class="error-area">
-						@error('email')
-							<span class="invalid-feedback @error ('email') error-message @enderror" role="alert">
-								<strong>{{ $message }}</strong>
-							</span>
-						@enderror
-						@error('password')
-							<span class="invalid-feedback @error ('password') error-message @enderror" role="alert">
-								<strong>{{ $message }}</strong>
-							</span>
-						@enderror
-					</div>
+					@if($errors->any())
+						<div class="mb-5 pt-1 pb-1 error-area text-center">
+							@error('email')
+								<span class="invalid-feedback @error ('email') error-message @enderror" role="alert">
+									<strong>{{ $message }}</strong>
+								</span>
+							@enderror
+							@error('password')
+								<span class="invalid-feedback @error ('password') error-message @enderror" role="alert">
+									<strong>{{ $message }}</strong>
+								</span>
+							@enderror
+						</div>
+					@endif
 					<!-- errorMessage Area-->
 
 					<form method="POST" action="{{ route('login') }}">

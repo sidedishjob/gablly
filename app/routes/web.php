@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,20 +14,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-	return view('about');
-});
+//ドメインでアクセスしてきた時用（http://gablly.com/）
+Route::get('/', [App\Http\Controllers\PostController::class, 'index'])->name('top');
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// Route::get('/about', function() {
-// 	return view('about');
-// })->name('about');
+Route::get('/about', function() {
+	return view('about');
+})->name('about');
 
 #TODOコントローラを通すかは要検討
 Route::get('/contact', function() {
 	return view('contacts.contact');
 })->name('contact');
+
+Route::resource('posts', PostController::class, ['only' => ['index', 'show', 'create', 'store']]);
+Route::get('posts/edit/{id}', [PostController::class, 'edit'])->name('posts.edit');
+Route::post('posts/update', [PostController::class, 'updateOrDelete'])->name('posts.update');
 
