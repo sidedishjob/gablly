@@ -39,17 +39,23 @@
 					<form method="POST" action="{{ route('login') }}">
 						@csrf
 
-						<div class="row mb-4 justify-content-center">
+						<div class="row mb-5 justify-content-center">
 							<div class="col-md-6">
-								<input id="email" type="email" class="form-control input-text js-input @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-								<label class="label" for="email">ユーザー名またはメールアドレス</label>
+								<div class="input-group">
+									<i class="fa-regular fa-user fa-lg form-icon"></i>
+									<input id="email" type="email" class="form-control input-text js-input @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+									<label class="label" for="email">ユーザー名またはメールアドレス</label>
+								</div>
 							</div>
 						</div>
 
 						<div class="row mb-4 justify-content-center">
 							<div class="col-md-6">
-								<input id="password" type="password" class="form-control input-text js-input @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-								<label class="label" for="password">パスワード</label>
+								<div class="input-group">
+									<i class="fa-solid fa-key fa-lg form-icon"></i>
+									<input id="password" type="password" class="form-control input-text js-input @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+									<label class="label" for="password">パスワード</label>
+								</div>
 							</div>
 						</div>
 
