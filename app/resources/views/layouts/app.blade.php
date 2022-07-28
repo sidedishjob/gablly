@@ -53,17 +53,18 @@
 					<ul class="navbar-nav ms-auto">
 						<!-- Authentication Links -->
 						@guest
-						
-						@if (Route::has('register'))
-						<li class="nav-item">
-							<a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-						</li>
-						@endif
+
+							@if (Route::has('register'))
+							<li class="nav-item">
+								<a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+							</li>
+							@endif
 							@if (Route::has('login'))
 								<li class="nav-item">
 									<a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
 								</li>
 							@endif
+
 						@else
 							<li class="nav-item dropdown">
 								<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -72,6 +73,7 @@
 
 								<div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 									<a class="dropdown-item" href="{{ route('posts.create') }}">新規投稿</a>
+									<a class="dropdown-item" href="{{ route('users.edit') }}">プロフィール編集</a>
 								</div>
 							</li>
 						@endguest

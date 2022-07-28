@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,3 +35,7 @@ Route::resource('posts', PostController::class, ['only' => ['index', 'show', 'cr
 Route::get('posts/edit/{id}', [PostController::class, 'edit'])->name('posts.edit');
 Route::post('posts/update', [PostController::class, 'updateOrDelete'])->name('posts.update');
 
+//プロフィール編集画面表示
+Route::get('users/edit', [UserController::class, 'edit'])->name('users.edit');
+//プロフィール更新処理orパスワード変更処理
+Route::post('users/update', [UserController::class, 'updateOrChange'])->name('users.update');

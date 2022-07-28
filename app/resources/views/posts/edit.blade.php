@@ -69,9 +69,13 @@
 								<button type="button" onclick="history.back()" class="btn btn-outline-dark">
 									{{ __('キャンセル') }}
 								</button>
-								<button type="submit" name="update" class="ms-3 btn btn-outline-dark">
+							</div>
+							<div class="col-auto">
+									<button type="submit" name="update" class="ms-3 btn btn-outline-dark">
 									{{ __('更　新') }}
 								</button>
+							</div>
+							<div class="col-auto">
 								<button type="submit" name="delete" onclick="return confirm('投稿を削除します。')" class="ms-5 btn btn-outline-danger">
 									{{ __('削　除') }}
 								</button>
