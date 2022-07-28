@@ -1,0 +1,21 @@
+.box {
+	min-height: 260px;
+}
+
+.pass-change {
+	display: none;
+}
+
+.box-tab {
+	color: white;
+	transition: .3s;
+}
+.box-tab:hover {
+	color: black;
+	background-color: rgba(144, 144, 144, 0.5);
+	box-shadow: 0 0 0 0.25rem rgb(144 144 144 / 25%);
+}
+.box-tab:focus {
+	color: black;
+	box-shadow: none;
+}

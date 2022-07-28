@@ -37,7 +37,7 @@
 					<form method="POST" action="{{ route('register') }}">
 						@csrf
 
-						<div class="row mb-4 justify-content-center">
+						<div class="row mb-5 justify-content-center">
 							<div class="col-md-6">
 								<div class="input-group">
 									<i class="fa-regular fa-user fa-lg form-icon"></i>
@@ -47,7 +47,7 @@
 							</div>
 						</div>
 
-						<div class="row mb-4 justify-content-center">
+						<div class="row mb-5 justify-content-center">
 							<div class="col-md-6">
 								<div class="input-group">
 									<i class="fa-regular fa-envelope fa-lg form-icon"></i>
@@ -57,7 +57,7 @@
 							</div>
 						</div>
 
-						<div class="row mb-4 justify-content-center">
+						<div class="row mb-5 justify-content-center">
 							<div class="col-md-6">
 								<div class="input-group">
 									<i class="fa-solid fa-key fa-lg form-icon"></i>
