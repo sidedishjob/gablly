@@ -1,0 +1,20 @@
+/* contact */
+textarea.input-text {
+	resize: none;
+	height: 30vh;
+}
+
+/* テキストエリアのラベル位置調整 */
+.input-text:focus + .label-body, .input-text.not-empty + .label-body {
+	transform: translateY(-29vh);
+}
+/* テキストエリアのラベル位置調整 */
+
+/* + アイコン位置 */
+.form-icon {
+	display: flex;
+	align-items: center;
+	color: #888;
+}
+/* + アイコン位置 */
+

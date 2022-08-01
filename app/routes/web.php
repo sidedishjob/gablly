@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,10 +27,6 @@ Route::get('/about', function() {
 	return view('about');
 })->name('about');
 
-#TODOコントローラを通すかは要検討
-Route::get('/contact', function() {
-	return view('contacts.contact');
-})->name('contact');
 
 Route::resource('posts', PostController::class, ['only' => ['index', 'show', 'create', 'store']]);
 Route::get('posts/edit/{id}', [PostController::class, 'edit'])->name('posts.edit');
@@ -39,3 +36,9 @@ Route::post('posts/update', [PostController::class, 'updateOrDelete'])->name('po
 Route::get('users/edit', [UserController::class, 'edit'])->name('users.edit');
 //プロフィール更新処理orパスワード変更処理
 Route::post('users/update', [UserController::class, 'updateOrChange'])->name('users.update');
+
+//お問い合わせ画面表示
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+//お問い合わせメール送信
+Route::post('/contact/thanks', [ContactController::class, 'send'])->name('contact.send');
+
