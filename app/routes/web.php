@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 //ドメインでアクセスしてきた時用（http://gablly.com/）
-Route::get('/', [App\Http\Controllers\PostController::class, 'index'])->name('top');
+Route::get('/', [PostController::class, 'index'])->name('top');
 
 Auth::routes();
 
