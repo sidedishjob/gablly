@@ -1,8 +1,5 @@
 @extends('layouts.app')
 @section('title', '投稿編集')
-@section('js')
-<script src="{{ asset('js/post.js') }}" defer></script>
-@endsection
 @section('css')
 <link href="{{ asset('css/posts/post.css')}}" rel="stylesheet">
 @endsection
@@ -16,7 +13,7 @@
 				<div class="card-body">
 
 					<!-- errorMessage Area-->
-					@if($errors->any() || session()->has('exclusive_lock_error'))
+					@if($errors->any())
 						<div class="mb-5 pt-1 pb-1 error-area text-center">
 							@error('title')
 								<span class="invalid-feedback d-block @error ('title') error-message @enderror" role="alert">
@@ -33,17 +30,19 @@
 									<strong>{{ $message }}</strong>
 								</span>
 							@enderror
-							@if(session()->has('exclusive_lock_error'))
-								<span class="invalid-feedback d-block error-message" role="alert">
-									<strong>{{ session('exclusive_lock_error') }}</strong>
+							@error('exclusive_lock_error')
+								<span class="invalid-feedback d-block @error ('exclusive_lock_error') error-message @enderror" role="alert">
+									<strong>{{ $message }}</strong>
 								</span>
-							@endif
+							@enderror
 						</div>
 					@endif
 					<!-- errorMessage Area-->
 
 					<form method="POST" action="/posts/update">
 						@csrf
+						<input name="id" type="hidden" value="{{$post->id}}">
+						<input name="version" type="hidden" value="{{$post->version}}">
 
 						<div class="row">
 							<div class="mb-0 jusify-content-center col-6 d-flex align-items-center">
@@ -82,8 +81,6 @@
 							</div>
 						</div>
 
-						<input name="id" type="hidden" value="{{$post->id}}">
-						<input name="version" type="hidden" value="{{$post->version}}">
 					</form>
 
 				</div>

@@ -9,7 +9,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
@@ -54,7 +53,6 @@ class UserController extends Controller
 			'email' => ['required', 'string', 'email', 'max:100'],
 		]);
 
-
 		//楽観的排他制御（version）
 		if (!($request->version == $user->version)) {
 			//バージョン番号が一致しない場合、エラーメッセージを付与して編集画面に戻す
@@ -71,7 +69,6 @@ class UserController extends Controller
 			//エラーがあれば編集画面に戻す
 			return redirect()->back()->withErrors($validator);
 		}
-
 
 		//入力値を設定
 		//変更があれば更新

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title', '新規投稿')
 @section('js')
-<script src="{{ asset('js/post.js') }}" defer></script>
+<script src="{{ asset('js/posts/create.js') }}" defer></script>
 @endsection
 @section('css')
 <link href="{{ asset('css/posts/post.css')}}" rel="stylesheet">

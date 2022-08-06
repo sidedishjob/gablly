@@ -42,37 +42,7 @@ textarea.input-text {
 	text-align: center;
 }
 
-
-/* 画像スライダー設定 */
-/* コンテナー */
-/* スライド */
-/* .infinite-slider .swiper-slide {
-	height: 320px !important;
-	width: auto !important;
-} */
-
-/* スライド内の画像 */
-/* .infinite-slider .swiper-slide img {
-	width: auto;
-	height: 100%;
-}
-
-.slide {
-	width: 36em;
-	background-color: rgba(221, 213, 213, 0.1);
-	border-radius: 10px;
-}
-
-/* スライド ホバー時 */
-/* .swiper-wrapper:hover a:not(:hover) {
-	opacity: .2;
-}
-.swiper-wrapper:hover a {
-	transition: 5000ms;
-} */
-
-/* スライド */
-
+/* 設定値定義 */
 :root {
 	--easing: cubic-bezier(.2, 1, .2, 1);
 	--transition: .8s var(--easing);
@@ -83,8 +53,7 @@ textarea.input-text {
 	--box-shadow-inset: inset .8rem .8rem 1.2rem rgba(0, 0, 0, .05), inset -.8rem -.8rem 1.2rem rgb(97, 97, 97);
 	--box-shadow-dark: .8rem .8rem 1.2rem rgba(0, 0, 0, .1), -.8rem -.8rem 1.2rem rgba(rgb(97, 97, 97),.2);
 }
-
-
+/* 設定値定義 */
 
 .slide-media,
 .thumb-media {
@@ -113,6 +82,7 @@ textarea.input-text {
 			transition-timing-function: linear !important;
 }
 .card .swiper-slide {
+	display: flex;
 	transition-duration: 1.5ms;
 	width: max-content;
 }
@@ -124,6 +94,12 @@ textarea.input-text {
 	-webkit-box-shadow: var(--box-shadow);
 			box-shadow: var(--box-shadow);
 }
+/* ひっくり返し用アニメーション */
+.card .slide-active {
+	transform: rotateY(180deg); /* 回転 */
+	transition: 3s; /* ３秒かけて */
+}
+/* ひっくり返し用アニメーション */
 .card .slide-media {
 	padding-top: 62.5%;
 }
@@ -131,7 +107,7 @@ textarea.input-text {
 	object-fit: contain;
 }
 .card .slide-content {
-	padding: 2.2rem;
+	padding: 1.2rem;
 }
 .card .slide-date {
 	font-size: 1.2rem;
@@ -143,9 +119,9 @@ textarea.input-text {
 	line-height: 1.6;
 	display: -webkit-box;
 	overflow: hidden;
-	-webkit-line-clamp: 2;
+	-webkit-line-clamp: 3;
 	-webkit-box-orient: vertical;
-	height: 3.2em;
+	height: 4.8em;
 	margin-top: 1.6rem;
 	font-size: 1.6rem;
 	margin: 0;

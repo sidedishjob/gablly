@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
 {
@@ -36,6 +37,7 @@ class PostController extends Controller
 
 	/**
 	 * Show the form for creating a new resource.
+	 * 投稿新規作成画面表示
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
@@ -46,7 +48,7 @@ class PostController extends Controller
 
 	/**
 	 * Store a newly created resource in storage.
-	 * 投稿新規作成画面表示
+	 * 投稿新規作成処理
 	 *
 	 * @param  \Illuminate\Http\Request  $request
 	 * @return \Illuminate\Http\Response
@@ -56,12 +58,12 @@ class PostController extends Controller
 		//入力チェック
 		$request->validate([
 			'image_path' => ['required'],
-			'title' => ['required', 'string'],
-			'body' => ['required', 'string'],
+			'title' => ['required', 'string', 'max:50'],
+			'body' => ['required', 'string', 'max:1000'],
 		]);
 
 		$id = Auth::id();
-		$post = new Post();
+		// $post = new Post();
 		$file = $request->file('image_path');
 
 		//画像の拡張子取得
@@ -76,27 +78,24 @@ class PostController extends Controller
 		//画像保存
 		$file->storeAs($dir, $file_name, 'public');
 
-		$post->user_id = $id;
-		$post->image_path = 'storage/' . $dir . '/' . $file_name;
-		$post->title = $request->title;
-		$post->body = $request->body;
+		// $post->user_id = $id;
+		// $post->image_path = 'storage/' . $dir . '/' . $file_name;
+		// $post->title = $request->title;
+		// $post->body = $request->body;
+		// //新規投稿なので排他制御のカラムに0をセット
+		// $post->version = 0;
+		$posts['user_id'] = $id;
+		$posts['image_path'] = 'storage/' . $dir . '/' . $file_name;
+		$posts['title'] = $request->title;
+		$posts['body'] = $request->body;
 		//新規投稿なので排他制御のカラムに0をセット
-		$post->version = 0;
+		// $post->version = 0;
+		$posts['version'] = 0;
 
-		$post->save();
+		//保存（追加）
+		Post::create($posts);
 
 		return redirect()->to('/posts');
-	}
-
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  \App\Models\Post  $post
-	 * @return \Illuminate\Http\Response
-	 */
-	public function show(Post $post)
-	{
-		//
 	}
 
 	/**
@@ -127,10 +126,21 @@ class PostController extends Controller
 		//レコードを検索
 		$post = Post::findOrFail($id);
 
+		//新しいパスワードのバリデーションチェック
+		$validator = Validator::make($request->all(), [
+			'title' => ['required', 'string', 'max:50'],
+			'body' => ['required', 'string', 'max:1000'],
+		]);
+
 		//楽観的排他制御（version）
 		if (!($request->version == $post->version)) {
 			//バージョン番号が一致しない場合、エラーメッセージを付与して編集画面に戻す
-			return redirect()->back()->with('exclusive_lock_error', '変更を保存できません。ページの再読込お願いします。');
+			$validator->errors()->add('exclusive_lock_error', '変更を保存できません。ページの再読込お願いします。');
+		}
+
+		if ($validator->errors()->any()) {
+			//エラーがあれば編集画面に戻す
+			return redirect()->back()->withErrors($validator);
 		}
 
 		//入力値を設定
