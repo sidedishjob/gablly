@@ -13,10 +13,6 @@
 				<div class="card-body">
 					<!-- errorMessage Area-->
 					@if($errors->any())
-						@error('is_passchange_Error')
-							<!-- パスワード変更時エラーリダイレクト判断用 -->
-							<div id="isError" hidden></div>
-						@enderror
 						<div class="mb-5 pt-1 pb-1 error-area text-center">
 							@error('email')
 								<span class="invalid-feedback d-block @error ('email') error-message @enderror" role="alert">
@@ -25,21 +21,6 @@
 							@enderror
 							@error('password')
 								<span class="invalid-feedback d-block @error ('password') error-message @enderror" role="alert">
-									<strong>{{ $message }}</strong>
-								</span>
-							@enderror
-							@error('currentpass_notmatch_error')
-								<span class="invalid-feedback d-block @error ('currentpass_notmatch_error') error-message @enderror" role="alert">
-									<strong>{{ $message }}</strong>
-								</span>
-							@enderror
-							@error('unchanged_error')
-								<span class="invalid-feedback d-block @error ('unchanged_error') error-message @enderror" role="alert">
-									<strong>{{ $message }}</strong>
-								</span>
-							@enderror
-							@error('exclusive_lock_error')
-								<span class="invalid-feedback d-block @error ('exclusive_lock_error') error-message @enderror" role="alert">
 									<strong>{{ $message }}</strong>
 								</span>
 							@enderror
