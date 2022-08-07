@@ -120,7 +120,7 @@
 				</li>
 			</ul>
 			<div class="container justify-content-center">
-				<p>© 2022 gablly</p>
+				<p>© {{ date('Y') }} {{ config('app.name') }}. @lang('All rights reserved.')</p>
 			</div>
 		</footer>
 		<!-- footer -->

@@ -25,5 +25,5 @@
 ご了承願います。<br>
 ----------------------------------------<br>
 <br>
-© gablly
+© {{ date('Y') }} {{ config('app.name') }}. @lang('All rights reserved.')
 <br>
