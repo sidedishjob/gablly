@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
@@ -44,13 +45,15 @@ class UserController extends Controller
 	public function update(Request $request)
 	{
 		$id = Auth::id();
+		$myEmail = Auth::user()->email;
+		$myUserName = Auth::user()->user_name;
 		//レコードを検索
 		$user = User::findOrFail($id);
 
 		//新しいパスワードのバリデーションチェック
 		$validator = Validator::make($request->all(), [
-			'user_name' => ['required','string', 'min:4', 'max:30', new alpha_num_hyphen_underScore_dot_check()],
-			'email' => ['required', 'string', 'email', 'max:100'],
+			'user_name' => ['required', 'string', 'min:4', 'max:30', new alpha_num_hyphen_underScore_dot_check(), Rule::unique('users', 'user_name')->whereNull('deleted_at')->whereNot('user_name', $myUserName)],
+			'email' => ['required', 'string', 'email', 'max:100', Rule::unique('users', 'email')->whereNull('deleted_at')->whereNot('email', $myEmail)],
 		]);
 
 		//楽観的排他制御（version）
