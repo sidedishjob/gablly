@@ -70,6 +70,14 @@ class UserController extends Controller
 			return redirect()->back()->withErrors($validator);
 		}
 
+		//メールアドレス変更判定フラグ
+		$isMailChangeFlg = false;
+		if ($request->email != $user->email) {
+			//メールアドレスに変更がある場合、メール認証リセット
+			$isMailChangeFlg = true;
+			$user->email_verified_at = null;
+		}
+
 		//入力値を設定
 		//変更があれば更新
 		$user->user_name = $request->user_name;
@@ -79,7 +87,13 @@ class UserController extends Controller
 		//保存（更新）
 		$user->save();
 
-		return redirect()->to('users/edit')->with('success_message', 'プロフィールを更新しました。');
+		if ($isMailChangeFlg) {
+			//メールアドレスに変更がある場合、認証用メール送信
+			$user->sendEmailVerificationNotification();
+			return redirect()->to('users/edit')->with(['success_message' => 'プロフィールを更新しました。', 'email_verify_message' => 'メールアドレス変更の確認メールを送信しました。']);
+		} else {
+			return redirect()->to('users/edit')->with('success_message', 'プロフィールを更新しました。');
+		}
 	}
 
 	/**

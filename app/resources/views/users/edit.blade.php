@@ -58,10 +58,30 @@
 					<!-- errorMessage Area-->
 					<!-- successMessage Area-->
 					@if(session()->has('success_message'))
-						<div class="mb-5 pt-1 pb-1 success-area text-center">
-							<span class="d-block success-message" role="alert">
-								<strong>{{ session('success_message') }}</strong>
-							</span>
+						<div class="mb-5 text-center">
+							<div class="mb-3 pt-1 pb-1 success-area">
+								<span class="d-block success-message" role="alert">
+									<strong>{{ session('success_message') }}</strong>
+								</span>
+							</div>
+							@if(session()->has('email_verify_message'))
+								<div class="pt-1 pb-1 email-verify-area">
+									<span class="d-block success-message" role="alert">
+										<form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
+											@csrf
+
+											<strong>
+												{{ session('email_verify_message') }}<br>
+
+												{{ __('メールに記載されているリンクをクリックして、登録手続きを完了してください。') }}<br>
+												{{ __('メールが届いていなければ、') }}
+												<button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('こちらをクリックして再送信してください。') }}</button>
+											</strong>
+
+										</form>
+									</span>
+								</div>
+							@endif
 						</div>
 					@endif
 					<!-- successMessage Area-->

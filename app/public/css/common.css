@@ -63,6 +63,13 @@ img {
 	color: white;
 }
 
+.email-verify-area {
+	background-color: rgba(100, 80, 10, 0.3);
+	border: solid;
+	border-radius: 5px;
+	color: white;
+}
+
 /* 部品 */
 /* 入力欄 */
 .form-control {
