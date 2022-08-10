@@ -35,8 +35,8 @@ Route::post('posts/update', [PostController::class, 'updateOrDelete'])->name('po
 
 //プロフィール編集画面表示
 Route::get('users/edit', [UserController::class, 'edit'])->name('users.edit');
-//プロフィール更新処理orパスワード変更処理
-Route::post('users/update', [UserController::class, 'updateOrChange'])->name('users.update');
+//プロフィール更新処理orパスワード変更処理orユーザー削除
+Route::post('users/update', [UserController::class, 'updateOrChangeOrDelete'])->name('users.update');
 
 //お問い合わせ画面表示
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');

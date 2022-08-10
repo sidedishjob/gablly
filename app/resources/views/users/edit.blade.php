@@ -156,10 +156,24 @@
 						</div>
 						<!-- box2 Area -->
 
+						<!-- box3 Area -->
+						<div id="box3" class="box user-delete">
+							<div class="row mb-5 justify-content-center">
+								<div class="col-md-6">
+									<h2>{{ __('アカウント削除') }}</h2><br>
+									<p>{{ __('アカウントを削除すると投稿したデータは全て削除されます。') }}<br>{{ __('アカウントを削除しますか？') }}</p>
+								</div>
+							</div>
+						</div>
+						<!-- box3 Area -->
+
 						<div class="row mb-0 justify-content-center">
 							<div class="col-auto">
 								<button type="submit" id="updateBtn" class="btn btn-outline-dark" name="update" disabled>
 									{{ __('更　新') }}
+								</button>
+								<button type="submit" id="deleteBtn" class="btn btn-outline-danger" name="delete" onclick="return confirm('アカウントを削除します。')" style="display: none">
+									{{ __('アカウントを削除する') }}
 								</button>
 							</div>
 						</div>
@@ -176,6 +190,9 @@
 				</li>
 				<li class="nav-item">
 					<button type="button" id="boxChangeBtn2" class="nav-link btn box-tab" onclick="boxChange(this)">パスワード変更</button>
+				</li>
+				<li class="nav-item">
+					<button type="button" id="boxChangeBtn3" class="nav-link btn box-tab user-delete-tab" onclick="boxChange(this)">アカウント削除</button>
 				</li>
 			</ul>
 

@@ -69,8 +69,8 @@
 
 						<div class="row mb-0 justify-content-center">
 							<div class="col-auto">
-								<button type="submit" onclick="return confirm('入力内容で送信してよろしいですか？')"  class="btn btn-outline-dark">
-									{{ __('送信') }}
+								<button type="submit" class="btn btn-outline-dark" onclick="return confirm('入力内容で送信してよろしいですか？')">
+									{{ __('送　信') }}
 								</button>
 							</div>
 						</div>

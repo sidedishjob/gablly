@@ -2,10 +2,11 @@
 	min-height: 260px;
 }
 
-.pass-change {
+.pass-change, .user-delete {
 	display: none;
 }
 
+/* タブ（プロフィール編集&パスワード更新） */
 .box-tab {
 	color: white;
 	transition: .3s;
@@ -19,3 +20,20 @@
 	color: black;
 	box-shadow: none;
 }
+/* タブ（プロフィール編集&パスワード更新） */
+
+/* タブ（アカウント削除） */
+.user-delete-tab {
+	color: maroon;
+}
+.user-delete-tab:hover {
+	color: red;
+	background-color: rgba(148, 87, 87, 0.5);
+	box-shadow: 0 0 0 0.25rem rgb(144 144 144 / 25%);
+}
+.nav-tabs .user-delete-tab.active {
+	background-color: red;
+	color: white;
+	box-shadow: none;
+}
+/* タブ（アカウント削除） */

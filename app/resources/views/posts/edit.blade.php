@@ -65,17 +65,17 @@
 
 						<div class="row mb-0 justify-content-center">
 							<div class="col-auto">
-								<button type="button" onclick="history.back()" class="btn btn-outline-dark">
+								<button type="button" class="btn btn-outline-dark" onclick="history.back()">
 									{{ __('キャンセル') }}
 								</button>
 							</div>
 							<div class="col-auto">
-									<button type="submit" name="update" class="ms-3 btn btn-outline-dark">
+									<button type="submit" class="ms-3 btn btn-outline-dark" name="update">
 									{{ __('更　新') }}
 								</button>
 							</div>
 							<div class="col-auto">
-								<button type="submit" name="delete" onclick="return confirm('投稿を削除します。')" class="ms-5 btn btn-outline-danger">
+								<button type="submit" class="ms-5 btn btn-outline-danger" name="delete" onclick="return confirm('投稿を削除します。')">
 									{{ __('削　除') }}
 								</button>
 							</div>

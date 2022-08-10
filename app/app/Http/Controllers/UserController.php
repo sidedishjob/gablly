@@ -153,12 +153,28 @@ class UserController extends Controller
 	}
 
 	/**
-	 * プロフィール更新またはパスワード変更の判定
+	 * ユーザー削除処理
 	 *
 	 * @param Request $request
 	 * @return void
 	 */
-	public function updateOrChange(Request $request)
+	public function destroy(Request $request)
+	{
+		$id = $request->id;
+
+		//論理削除実行（deleted_atを更新）
+		User::findOrFail($id)->delete();
+
+		return redirect()->to('/');
+	}
+
+	/**
+	 * プロフィール更新またはパスワード変更またはユーザー削除の判定
+	 *
+	 * @param Request $request
+	 * @return void
+	 */
+	public function updateOrChangeOrDelete(Request $request)
 	{
 		if ($request->has('update')) {
 			//プロフィール更新処理
@@ -166,6 +182,9 @@ class UserController extends Controller
 		} else if ($request->has('change')) {
 			//パスワード変更処理
 			$this->changePassword($request);
+		} else if ($request->has('delete')) {
+			//ユーザー削除処理
+			$this->destroy($request);
 		}
 
 		return redirect()->to('users/edit');
