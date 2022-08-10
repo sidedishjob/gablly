@@ -22,8 +22,8 @@
 					<!-- errorMessage Area-->
 					@if($errors->any())
 						<div class="mb-5 pt-1 pb-1 error-area text-center">
-							@error('email')
-								<span class="invalid-feedback @error ('email') error-message @enderror" role="alert">
+							@error('user_name')
+								<span class="invalid-feedback @error ('user_name') error-message @enderror" role="alert">
 									<strong>{{ $message }}</strong>
 								</span>
 							@enderror
@@ -43,8 +43,8 @@
 							<div class="col-md-6">
 								<div class="input-group">
 									<i class="fa-regular fa-user fa-lg form-icon"></i>
-									<input id="email" type="email" class="form-control input-text js-input @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-									<label class="label" for="email">ユーザー名またはメールアドレス</label>
+									<input id="user_name" type="text" class="form-control input-text js-input @error('user_name') is-invalid @enderror" name="user_name" value="{{ old('user_name') }}" required autocomplete="user_name" autofocus>
+									<label class="label" for="user_name">ユーザー名またはメールアドレス</label>
 								</div>
 							</div>
 						</div>

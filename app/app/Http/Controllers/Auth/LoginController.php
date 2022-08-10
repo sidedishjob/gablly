@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -51,5 +52,54 @@ class LoginController extends Controller
 	public function redirectPath()
 	{
 		return '/contact';
+	}
+
+	/**
+	 * Get the login username to be used by the controller.
+	 *
+	 * @return string
+	 */
+	public function username()
+	{
+		return 'user_name';
+	}
+
+	/**
+	 * Validate the user login request.
+	 * ログイン時のバリデーションチェック
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @return void
+	 *
+	 * @throws \Illuminate\Validation\ValidationException
+	 */
+	protected function validateLogin(Request $request)
+	{
+		$request->validate([
+			$this->username() => 'required|string|min:4|max:100',
+			'password' => 'required|string|min:8|max:100',
+		]);
+	}
+
+	/**
+	 * Attempt to log the user into the application.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @return bool
+	 */
+	protected function attemptLogin(Request $request)
+	{
+		$username = $request->input($this->username());
+		$password = $request->input('password');
+
+		if (filter_var($username, FILTER_VALIDATE_EMAIL)) {
+			$credentials = ['email' => $username, 'password' => $password];
+		} else {
+			$credentials = [$this->username() => $username, 'password' => $password];
+		}
+
+		return $this->guard()->attempt(
+			$credentials, $request->filled('remember')
+		);
 	}
 }
