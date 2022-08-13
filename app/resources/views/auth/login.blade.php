@@ -20,8 +20,8 @@
 				<div class="card-body">
 
 					<!-- errorMessage Area-->
-					@if($errors->any())
-						<div class="mb-5 pt-1 pb-1 error-area text-center">
+					<div id="error_area" class="mb-5 pt-1 pb-1 error-area text-center @if($errors->any()) d-block @endif">
+						@if($errors->any())
 							@error('user_name')
 								<span class="invalid-feedback @error ('user_name') error-message @enderror" role="alert">
 									<strong>{{ $message }}</strong>
@@ -32,11 +32,11 @@
 									<strong>{{ $message }}</strong>
 								</span>
 							@enderror
-						</div>
-					@endif
+						@endif
+					</div>
 					<!-- errorMessage Area-->
 
-					<form method="POST" action="{{ route('login') }}">
+					<form method="POST" action="{{ route('login') }}" onsubmit="return loginCheck()">
 						@csrf
 
 						<div class="row mb-5 justify-content-center">

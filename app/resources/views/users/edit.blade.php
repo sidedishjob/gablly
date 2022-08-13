@@ -17,12 +17,12 @@
 				<div class="card-body">
 
 					<!-- errorMessage Area-->
-					@if($errors->any())
-						@error('is_passchange_Error')
-							<!-- パスワード変更時エラーリダイレクト判断用 -->
-							<div id="isError" hidden></div>
-						@enderror
-						<div class="mb-5 pt-1 pb-1 error-area text-center">
+					@error('is_passchange_Error')
+						<!-- パスワード変更時エラーリダイレクト判断用 -->
+						<div id="isError" hidden></div>
+					@enderror
+					<div id="error_area" class="mb-5 pt-1 pb-1 error-area text-center @if($errors->any()) d-block @endif">
+						@if($errors->any())
 							@error('user_name')
 								<span class="invalid-feedback d-block @error ('user_name') error-message @enderror" role="alert">
 									<strong>{{ $message }}</strong>
@@ -53,8 +53,8 @@
 									<strong>{{ $message }}</strong>
 								</span>
 							@enderror
-						</div>
-					@endif
+						@endif
+					</div>
 					<!-- errorMessage Area-->
 					<!-- successMessage Area-->
 					@if(session()->has('success_message'))
@@ -86,7 +86,7 @@
 					@endif
 					<!-- successMessage Area-->
 
-					<form method="POST" action="{{ route('users.update') }}">
+					<form method="POST" action="{{ route('users.update') }}" onsubmit="return userCheck()">
 						@csrf
 						<input name="id" type="hidden" value="{{$user->id}}">
 						<input name="version" type="hidden" value="{{$user->version}}">

@@ -159,6 +159,9 @@ return [
 		'email' => 'メールアドレス',
 		'name' => 'お名前',
 		'message' => 'お問い合わせ内容',
+		'title' => 'タイトル',
+		'body' => 'コンテンツ',
+		'image_path' => '画像',
 	],
 
 	'alpha_dot_underBar_check' => ':attribute は半角英数字及びダッシュ(-)及び下線(_)及びドット(.)がご利用できます。',

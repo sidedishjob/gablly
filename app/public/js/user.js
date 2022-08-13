@@ -116,6 +116,13 @@ function boxChange(obj) {
 		document.title = 'gablly - アカウント削除'
 
 	}
+
+	//エラー初期化
+	const userName = document.getElementById('user_name');
+	const email = document.getElementById('email');
+	const password = document.getElementById('password');
+	const passwordConfirm = document.getElementById('password_confirm');
+	errorInit([userName, email, password, passwordConfirm]);
 }
 
 //ページ読み込み時

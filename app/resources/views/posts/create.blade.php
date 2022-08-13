@@ -16,8 +16,8 @@
 				<div class="card-body">
 
 					<!-- errorMessage Area-->
-					@if($errors->any())
-						<div class="mb-5 pt-1 pb-1 error-area text-center">
+					<div id="error_area" class="mb-5 pt-1 pb-1 error-area text-center @if($errors->any()) d-block @endif">
+						@if($errors->any())
 							@error('title')
 								<span class="invalid-feedback d-block @error ('title') error-message @enderror" role="alert">
 									<strong>{{ $message }}</strong>
@@ -33,11 +33,11 @@
 									<strong>{{ $message }}</strong>
 								</span>
 							@enderror
-						</div>
-					@endif
+						@endif
+					</div>
 					<!-- errorMessage Area-->
 
-					<form method="POST" action="/posts" enctype="multipart/form-data">
+					<form method="POST" action="/posts" enctype="multipart/form-data" onsubmit="return postCheck()">
 						@csrf
 
 						<div class="row">
@@ -46,7 +46,7 @@
 									<img id="image_prev" src="{{ asset('/image/no_image.png') }}">
 									<label class="upload-label btn btn-outline-dark">
 										画像を選択
-										<input id="image_path" type="file" accept="image/*"  name="image_path" required>
+										<input id="image_path" type="file" accept="image/*"  name="image_path">
 									</label>
 								</div>
 							</div>

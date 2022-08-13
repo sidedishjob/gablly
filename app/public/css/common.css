@@ -1,4 +1,6 @@
 /* 共通設定 */
+@import url(https://use.fontawesome.com/releases/v5.3.1/css/all.css);
+
 /* common */
 * {
 	margin: 0px;
@@ -27,6 +29,10 @@ img {
 	height: 100%;
 }
 
+.btn, label {
+	font-weight: bold;
+}
+
 .mrg-15 {
 	margin-left: 15px;
 }
@@ -50,10 +56,20 @@ img {
 	margin-top: 100px;
 }
 
+/* バリデーション エラーメッセージ */
 .error-area {
+	display: none;
 	background-color: rgba(125, 42, 42, 0.3);
+	/* background-color: rgba(253, 127, 127, 0.2); */
 	border: solid;
-	border-radius: 5px;
+	border-radius: 10px;
+}
+
+.error-message {
+	margin: 0px;
+	display: block;
+	text-align: center;
+	font-weight: bold;
 }
 
 .success-area {
@@ -69,6 +85,14 @@ img {
 	border-radius: 5px;
 	color: white;
 }
+
+/* + アイコン位置 */
+.form-icon {
+	display: flex;
+	align-items: center;
+	color: #888;
+}
+/* + アイコン位置 */
 
 /* 部品 */
 /* 入力欄 */
@@ -88,10 +112,6 @@ img {
 	box-shadow: none;
 }
 /* + ラベルが上に移動 */
-/* .form-field {
-	position: relative;
-	margin: 32px 0;
-} */
 .input-text {
 	display: block;
 	margin-left: 20px !important;

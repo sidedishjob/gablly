@@ -24,17 +24,18 @@
 						<div class="swiper">
 							<div class="col m-3 swiper-wrapper">
 								@foreach ($posts as $post)
-									<!-- <a href="{{ route('posts.edit', ['id' => $post->id]) }}" class="swiper-slide"> -->
-									<div class="swiper-slide inside{{$post->id}}">
-										<article class="slide">
-										<div class="slide-media img-cover">
-											<img src="{{ asset($post->image_path) }}" alt="Phot by $user_name on $day.">
+									<a href="{{ route('posts.edit', ['id' => $post->id]) }}" class="swiper-slide">
+										<div class="swiper-slide inside{{$post->id}}">
+											<article class="slide">
+												<div class="slide-media img-cover">
+													<img src="{{ asset($post->image_path) }}" alt="Phot by $user_name on $day.">
+												</div>
+												<div class="slide-content">
+													<h2 class="slide-title text-title fs-5 fw-bold mt-4">{{ __($post->title) }}</h2>
+												</div>
+											</article>
 										</div>
-										<div class="slide-content">
-											<h2 class="slide-title text-title fs-5 fw-bold mt-4">{{ __($post->title) }}</h2>
-										</div>
-									</article>
-								</div>
+									</a>
 								@endforeach
 							</div>
 						</div>

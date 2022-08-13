@@ -13,8 +13,8 @@
 				<div class="card-body">
 
 					<!-- errorMessage Area-->
-					@if($errors->any())
-						<div class="mb-5 pt-1 pb-1 error-area text-center">
+					<div id="error_area" class="mb-5 pt-1 pb-1 error-area text-center @if($errors->any()) d-block @endif">
+						@if($errors->any())
 							@error('user_name')
 								<span class="invalid-feedback d-block @error ('user_name') error-message @enderror" role="alert">
 									<strong>{{ $message }}</strong>
@@ -30,11 +30,11 @@
 									<strong>{{ $message }}</strong>
 								</span>
 							@enderror
-						</div>
-					@endif
+						@endif
+					</div>
 					<!-- errorMessage Area-->
 
-					<form method="POST" action="{{ route('register') }}">
+					<form method="POST" action="{{ route('register') }}" onsubmit="return userCheck()">
 						@csrf
 
 						<div class="row mb-5 justify-content-center">
@@ -71,7 +71,7 @@
 							<div class="col-md-6">
 								<div class="input-group">
 									<i class="fa-solid fa-key fa-lg form-icon"></i>
-									<input id="password-confirm" type="password" class="form-control input-text js-input" name="password_confirmation" required autocomplete="new-password">
+									<input id="password_confirm" type="password" class="form-control input-text js-input" name="password_confirmation" required autocomplete="new-password">
 									<label class="label" for="password-confirm">パスワード（再入力）</label>
 								</div>
 							</div>
