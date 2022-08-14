@@ -9,12 +9,3 @@ textarea.input-text {
 	transform: translateY(-29vh);
 }
 /* テキストエリアのラベル位置調整 */
-
-/* + アイコン位置 */
-.form-icon {
-	display: flex;
-	align-items: center;
-	color: #888;
-}
-/* + アイコン位置 */
-

@@ -43,6 +43,7 @@ img {
 }
 /* common */
 
+
 /* header */
 .navbar {
 	position: absolute;
@@ -50,6 +51,7 @@ img {
 	z-index: 1;
 }
 /* header */
+
 
 /* main */
 .card {
@@ -152,6 +154,7 @@ img {
 /* 部品 */
 
 /* main */
+
 
 /* footer */
 footer {

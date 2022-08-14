@@ -155,17 +155,6 @@ textarea.input-text {
 }
 
 @media only screen and (min-width: 1025px) {
-	/* .tab-sp {
-	display: none !important;
-	}
-	.swiper-button-prev::before, .swiper-button-next::before {
-	-webkit-transition: var(--transition);
-	transition: var(--transition);
-	}
-	.swiper-button-prev:hover::before, .swiper-button-next:hover::before {
-	-webkit-transform: scale(1.2);
-			transform: scale(1.2);
-	} */
 	.card .slide {
 	-webkit-transition: var(--transition);
 	transition: var(--transition);
