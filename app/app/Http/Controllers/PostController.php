@@ -32,7 +32,14 @@ class PostController extends Controller
 	{
 		$posts = Post::where('user_id', Auth::id())->get();
 
-		return view('posts.top', ['posts' => $posts]);
+		//投稿有無で表示するビュー切替
+		if ($posts->isEmpty()) {
+			//投稿が0件の場合
+			return view('posts.topNone');
+		} else {
+			//投稿が1件以上の場合
+			return view('posts.top', ['posts' => $posts]);
+		}
 	}
 
 	/**

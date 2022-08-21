@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title', 'ログイン')
 @section('css')
-<link href="{{ asset('css/auth/common.css')}}" rel="stylesheet">
+<link href="{{ asset('css/common.css')}}" rel="stylesheet">
 <link href="{{ asset('css/auth/login.css')}}" rel="stylesheet">
 @endsection
 

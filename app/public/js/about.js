@@ -1,18 +1,19 @@
-// common
-// section fadeIn
-const section_name = document.querySelectorAll(".box");
+// ABOUT画面
 
-window.onload = function () {
+// section fadeIn
+const arraySection = document.querySelectorAll('.box');
+
+window.addEventListener('load', function () {
 	sectionFadeIn();
-};
-window.addEventListener("scroll", function () {
+});
+window.addEventListener('scroll', function () {
 	sectionFadeIn();
 });
 
 // section表示
 function sectionFadeIn () {
-	section_name.forEach(function (element) {
-		// ターゲットの位置を取得
+	arraySection.forEach(function (element) {
+		// ターゲットの位置を取得ƒ
 		const target = element.getBoundingClientRect().top + window.pageYOffset; // offset().top;
 		// スクロール量を取得
 		const scroll = window.scrollY;
@@ -27,3 +28,13 @@ function sectionFadeIn () {
 		}
 	});
 };
+
+// loading画面表示&非表示
+window.addEventListener('DOMContentLoaded', function() {
+	const loader = document.getElementById('loader');
+	loader.classList.add('loaded');
+	const box = document.getElementById('box1');
+	if (box != null) {
+		box.classList.add('active');
+	}
+});

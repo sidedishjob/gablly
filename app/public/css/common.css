@@ -37,6 +37,10 @@ img {
 	margin-left: 15px;
 }
 
+.ls-1 {
+	letter-spacing: normal;
+}
+
 #app {
 	min-height: 100vh;
 	padding-bottom: 170px;
@@ -213,6 +217,92 @@ footer .btn-text {
 /* footer */
 
 
+/* loading */
+.sk-cube-grid {
+	width: 40px;
+	height: 40px;
+	margin: 30% auto;
+  }
+
+.sk-cube-grid .sk-cube {
+	width: 33%;
+	height: 33%;
+	background-color: rgb(246, 222, 173);
+	float: left;
+	-webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+			animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out; 
+}
+.sk-cube-grid .sk-cube1 {
+	-webkit-animation-delay: 0.2s;
+			animation-delay: 0.2s; }
+.sk-cube-grid .sk-cube2 {
+	-webkit-animation-delay: 0.3s;
+			animation-delay: 0.3s; }
+.sk-cube-grid .sk-cube3 {
+	-webkit-animation-delay: 0.4s;
+			animation-delay: 0.4s; }
+.sk-cube-grid .sk-cube4 {
+	-webkit-animation-delay: 0.1s;
+			animation-delay: 0.1s; }
+.sk-cube-grid .sk-cube5 {
+	-webkit-animation-delay: 0.2s;
+			animation-delay: 0.2s; }
+.sk-cube-grid .sk-cube6 {
+	-webkit-animation-delay: 0.3s;
+			animation-delay: 0.3s; }
+.sk-cube-grid .sk-cube7 {
+	-webkit-animation-delay: 0s;
+			animation-delay: 0s; }
+.sk-cube-grid .sk-cube8 {
+	-webkit-animation-delay: 0.1s;
+			animation-delay: 0.1s; }
+.sk-cube-grid .sk-cube9 {
+	-webkit-animation-delay: 0.2s;
+			animation-delay: 0.2s; }
+
+@-webkit-keyframes sk-cubeGridScaleDelay {
+	0%, 70%, 100% {
+	-webkit-transform: scale3D(1, 1, 1);
+			  transform: scale3D(1, 1, 1);
+	} 35% {
+	  -webkit-transform: scale3D(0, 0, 1);
+			  transform: scale3D(0, 0, 1); 
+	}
+}
+
+@keyframes sk-cubeGridScaleDelay {
+	0%, 70%, 100% {
+	-webkit-transform: scale3D(1, 1, 1);
+			  transform: scale3D(1, 1, 1);
+	} 35% {
+	  -webkit-transform: scale3D(0, 0, 1);
+			  transform: scale3D(0, 0, 1);
+	} 
+}
+@keyframes fadeOut {
+	from {
+		opacity: 1;
+	}
+	to {
+		display: none;
+		opacity: 0;
+		z-index: -1;
+	}
+}
+
+#loader {
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	background-color: #ffffff;
+	/* 最前面 */
+	z-index: 99;
+}
+/* 読み込み完了後に「loaded」を付与する */
+#loader.loaded {
+	animation: fadeOut 3s forwards;
+}
+/* loading */
 
 /* test */
 .card {

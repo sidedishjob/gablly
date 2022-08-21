@@ -4,7 +4,7 @@
 <script src="{{ asset('js/user.js') }}" defer></script>
 @endsection
 @section('css')
-<link href="{{ asset('css/auth/common.css')}}" rel="stylesheet">
+<link href="{{ asset('css/common.css')}}" rel="stylesheet">
 <link href="{{ asset('css/users/user.css')}}" rel="stylesheet">
 @endsection
 
