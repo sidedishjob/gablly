@@ -44,9 +44,9 @@
 				</a>
 
 				<!-- ハンバーガーメニュー -->
-				<!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
 					<span class="navbar-toggler-icon"></span>
-				</button> -->
+				</button>
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<!-- Left Side Of Navbar -->
@@ -60,25 +60,29 @@
 
 							@if (Route::has('register'))
 							<li class="nav-item">
-								<a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+								<a class="nav-link" href="{{ route('register') }}">
+									<span class="btn-text">{{ __('会員登録') }}</span>
+								</a>
 							</li>
 							@endif
 							@if (Route::has('login'))
-								<li class="nav-item">
-									<a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+								<li class="nav-item mrg-15">
+									<a class="nav-link" href="{{ route('login') }}">
+										<span class="btn-text">{{ __('ログイン') }}</span>
+									</a>
 								</li>
 							@endif
 
 						@else
-							<li class="nav-item dropdown">
-								<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-									{{ Auth::user()->user_name }}
+							<li class="nav-item">
+								<a class="nav-link" href="{{ route('posts.create') }}">
+									<span class="btn-text">{{ __('新規投稿') }}</span>
 								</a>
-
-								<div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-									<a class="dropdown-item" href="{{ route('posts.create') }}">新規投稿</a>
-									<a class="dropdown-item" href="{{ route('users.edit') }}">プロフィール編集</a>
-								</div>
+							</li>
+							<li class="nav-item mrg-15">
+								<a class="nav-link" href="{{ route('users.edit') }}">
+									<span class="btn-text">{{ __('プロフィール編集') }}</span>
+								</a>
 							</li>
 						@endguest
 					</ul>
@@ -99,7 +103,7 @@
 			<!-- TODO ロゴ画像に設定 -->
 			<!-- <img src="{{ asset('image/logo.png')}}" alt="logo" class="justify-content-center"> -->
 			<p style="font-size: large; color: black;">gablly</p><!-- logo画像入れたら削除 -->
-			<ul class="nav justify-content-center">
+			<ul class="nav justify-content-center fw-bold">
 				<li class="nav-item">
 					<a class="nav-link" href="{{ route('top') }}"><span class="btn-text">トップページへ<span class="mrg-15">&gt;</span></span></a>
 				</li>
@@ -113,14 +117,20 @@
 					</li>
 				@else
 					<li class="nav-item">
-						<a class="nav-link" href="{{ route('login') }}"><span class="btn-text">ログイン<span class="mrg-15">&gt;</span></span></a>
+						<a class="nav-link" href="{{ route('login') }}">
+							<span class="btn-text">ログイン<span class="mrg-15">&gt;</span></span>
+						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="{{ route('register') }}"><span class="btn-text">会員登録<span class="mrg-15">&gt;</span></span></a>
+						<a class="nav-link" href="{{ route('register') }}">
+							<span class="btn-text">会員登録<span class="mrg-15">&gt;</span></span>
+						</a>
 					</li>
 				@endif
 				<li class="nav-item">
-					<a class="nav-link" href="{{ route('contact') }}"><span class="btn-text">お問い合わせ<span class="mrg-15">&gt;</span></span></a>
+					<a class="nav-link" href="{{ route('contact') }}">
+						<span class="btn-text">お問い合わせ<span class="mrg-15">&gt;</span></span>
+					</a>
 				</li>
 			</ul>
 			<div class="container justify-content-center">

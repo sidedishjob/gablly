@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('title', 'ログイン')
 @section('css')
-<link href="{{ asset('css/common.css')}}" rel="stylesheet">
 <link href="{{ asset('css/auth/login.css')}}" rel="stylesheet">
 @endsection
 
@@ -40,7 +39,7 @@
 						@csrf
 
 						<div class="row mb-5 justify-content-center">
-							<div class="col-md-6">
+							<div class="col">
 								<div class="input-group">
 									<i class="fa-regular fa-user fa-lg form-icon"></i>
 									<input id="user_name" type="text" class="form-control input-text js-input @error('user_name') is-invalid @enderror" name="user_name" value="{{ old('user_name') }}" required autocomplete="user_name" autofocus>
@@ -50,7 +49,7 @@
 						</div>
 
 						<div class="row mb-4 justify-content-center">
-							<div class="col-md-6">
+							<div class="col">
 								<div class="input-group">
 									<i class="fa-solid fa-key fa-lg form-icon"></i>
 									<input id="password" type="password" class="form-control input-text js-input @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
@@ -60,7 +59,7 @@
 						</div>
 
 						<div class="row mb-4 justify-content-center">
-							<div class="col-md-6">
+							<div class="col-auto">
 								<div class="form-check">
 									<input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 

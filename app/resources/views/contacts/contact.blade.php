@@ -37,8 +37,8 @@
 					<form method="POST" action="{{ route('contact.send') }}" onsubmit="return contactCheck()">
 						@csrf
 
-						<div class="row mb-4 justify-content-center">
-							<div class="col-md-6">
+						<div class="row mb-5 justify-content-center">
+							<div class="col">
 								<div class="input-group">
 									<i class="fa-regular fa-user fa-lg form-icon"></i>
 									<input id="name" type="text" class="form-control input-text js-input @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" placeholder="" autofocus>
@@ -47,8 +47,8 @@
 							</div>
 						</div>
 
-						<div class="row mb-4 justify-content-center">
-							<div class="col-md-6">
+						<div class="row mb-5 justify-content-center">
+							<div class="col">
 								<div class="input-group">
 									<i class="fa-regular fa-envelope fa-lg form-icon"></i>
 									<input id="email" type="email" class="form-control input-text js-input @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -57,8 +57,8 @@
 							</div>
 						</div>
 
-						<div class="row mb-4 justify-content-center">
-							<div class="col-md-6">
+						<div class="row mb-5 justify-content-center">
+							<div class="col">
 								<div class="input-group">
 									<i class="fa-solid fa-comments fa-lg form-icon"></i>
 									<textarea id="message" type="text" class="form-control input-text js-input @error('message') is-invalid @enderror" name="message" required autocomplete="コンテンツ" placeholder="" autofocus>{{ old('message') }}</textarea>

@@ -7,6 +7,19 @@
 	padding: 0px;
 }
 
+@media only screen and (max-width: 1024px) {
+	html {
+	-webkit-text-size-adjust: 100%;
+	}
+}
+
+/* スマホ フォントサイズ調整 */
+@media only screen and (max-width: 599px) {
+	html {
+	font-size: 85%;
+	}
+}
+
 body {
 	position: relative;
 	/* background-image: url(../image/main_background.jpg); */
@@ -19,7 +32,7 @@ li {
 }
 
 a, a:hover {
-	display: block;
+	display: inline-block;
 	text-decoration: none;
 	color: white;
 }
@@ -42,8 +55,27 @@ img {
 }
 
 #app {
-	min-height: 100vh;
-	padding-bottom: 170px;
+	min-height: 90vh;
+	padding-bottom: 150px;
+}
+/* タブレット & PC #app */
+@media screen and (min-width:576px) {
+	#app {
+		min-height: 100vh;
+		padding-bottom: 170px;
+	}
+}
+
+/* スマホスクロールバー非表示 */
+@media screen and (max-width:767px) {
+	.container {
+		scrollbar-width: none; /*Firefox対応のスクロールバー非表示コード*/  
+		-ms-overflow-style: none;/*Internet Explore対応のスクロールバー非表示コード*/   
+	}
+	
+	.container::-webkit-scrollbar {  
+		display: none;/*Google Chrome、Safari、Microsoft Edge対応のスクロールバー非表示コード*/
+	}
 }
 /* common */
 
@@ -54,12 +86,31 @@ img {
 	width: 100%;
 	z-index: 1;
 }
+
+.navbar-light .navbar-nav .nav-link {
+	float: right;
+}
+
+/* ハンバーガーメニュー */
+.navbar-toggler[aria-expanded="true"]{
+	background-color: rgba(0, 0, 0, 0.5);
+}
+/* ハンバーガーメニュー */
 /* header */
 
 
 /* main */
 .card {
-	margin-top: 100px;
+	margin-top: 30%;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 500px;
+}
+/* ハンバーガーメニューから切り替わるタイミング */
+@media screen and (min-width:768px) {
+	.card {
+		margin-top: 15%;
+	}
 }
 
 /* バリデーション エラーメッセージ */
@@ -121,6 +172,7 @@ img {
 .input-text {
 	display: block;
 	margin-left: 20px !important;
+	/* max-width: ; */
 	width: 100%;
 	height: 36px;
 	border-width: 0 0 2px 0;
@@ -149,12 +201,19 @@ img {
 .col-md-6 {
 	position:relative;
 }
-@media (min-width: 768px) {
-	.col-md-6 {
-		width: 75%;
-	}
-}
 /* + ラベルが上に移動 */
+
+/* 文字反転 */
+.btn-text {
+	display: inline-block;
+	color: rgb(0, 0, 0);
+	transition: .25s;
+}
+.btn-text:hover  {
+	color: rgb(130, 130, 130);
+	transform: rotateX(360deg);
+}
+/* 文字反転 */
 /* 部品 */
 
 /* main */
@@ -164,18 +223,18 @@ img {
 footer {
 	position: absolute;
 	bottom: 0;
-	padding: 10px 0;
-	height: 170px;
+	padding: 20px 0 10px 0;
+	height: 150px;
 	width: 100%;
 	line-height: 20px;
 	font-size: 80%;
 	text-align: center;
 }
 
-/* PC footer */
-@media screen and (min-width:1024px) {
+/* タブレット & PC footer */
+@media screen and (min-width:576px) {
 	footer {
-		padding-top: 20px;
+		height: 170px;
 		font-size: 100%;
 	}
 }
@@ -192,27 +251,14 @@ footer p {
 }
 
 footer .nav-link {
-	margin: 8px 50px;
+	margin: 8px 20px;
 	padding: 0;
 }
-
-footer .btn-text {
-	display: inline-block;
-	font-weight: bold;
-	color: rgb(0, 0, 0);
-	transition: .25s;
-}
-
-/* PC footer nav-link */
-@media screen and (min-width:1024px) {
+/* タブレット & PC footer nav-link */
+@media screen and (min-width:599px) {
 	footer .nav-link {
-		margin: 16px 50px;
+		margin: 16px 30px;
 	}
-}
-
-.btn-text:hover  {
-	color: rgb(130, 130, 130);
-	transform: rotateX(360deg);
 }
 /* footer */
 

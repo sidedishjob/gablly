@@ -102,7 +102,11 @@
 			</p>
 		</div>
 		<div class="link-item">
-			<a class="btn" href="{{ route('register') }}">会員登録 ▶</a>
+			@guest
+				<a class="btn" href="{{ route('register') }}">会員登録 ▶</a>
+			@else
+				<a class="btn" href="#">会員登録 ▶</a>
+			@endguest
 		</div>
 	</div>
 </section>

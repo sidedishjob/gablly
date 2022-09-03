@@ -1,8 +1,5 @@
 @extends('layouts.app')
 @section('title', 'パスワード忘れた方')
-@section('css')
-<link href="{{ asset('css/common.css')}}" rel="stylesheet">
-@endsection
 
 @section('content')
 <div class="container">

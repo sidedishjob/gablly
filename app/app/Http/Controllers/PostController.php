@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
@@ -63,14 +64,26 @@ class PostController extends Controller
 	public function store(Request $request)
 	{
 		//入力チェック
-		$request->validate([
+		$validator = Validator::make($request->all(), [
 			'image_path' => ['required'],
 			'title' => ['required', 'string', 'max:50'],
 			'body' => ['required', 'string', 'max:1000'],
 		]);
 
+		//投稿数制限チェック（30件までしか投稿させない）
+		//現在の投稿数取得
+		$postCount = Post::where('user_id', Auth::id())->count();
+		if ($postCount >= 30) {
+			//現在の投稿数が30件以上の場合、エラーメッセージを付与して編集画面に戻す
+			$validator->errors()->add('post_limit_error', '30件までしか投稿出来ません。投稿するには現在投稿済みのものを削除してください。');
+		}
+
+		if ($validator->errors()->any()) {
+			//エラーがあれば編集画面に戻す
+			return redirect()->back()->withErrors($validator);
+		}
+
 		$id = Auth::id();
-		// $post = new Post();
 		$file = $request->file('image_path');
 
 		//画像の拡張子取得
@@ -85,18 +98,12 @@ class PostController extends Controller
 		//画像保存
 		$file->storeAs($dir, $file_name, 'public');
 
-		// $post->user_id = $id;
-		// $post->image_path = 'storage/' . $dir . '/' . $file_name;
-		// $post->title = $request->title;
-		// $post->body = $request->body;
-		// //新規投稿なので排他制御のカラムに0をセット
-		// $post->version = 0;
+		//入力値を設定
 		$posts['user_id'] = $id;
 		$posts['image_path'] = 'storage/' . $dir . '/' . $file_name;
 		$posts['title'] = $request->title;
 		$posts['body'] = $request->body;
 		//新規投稿なので排他制御のカラムに0をセット
-		// $post->version = 0;
 		$posts['version'] = 0;
 
 		//保存（追加）
@@ -133,7 +140,7 @@ class PostController extends Controller
 		//レコードを検索
 		$post = Post::findOrFail($id);
 
-		//新しいパスワードのバリデーションチェック
+		//入力チェック
 		$validator = Validator::make($request->all(), [
 			'title' => ['required', 'string', 'max:50'],
 			'body' => ['required', 'string', 'max:1000'],

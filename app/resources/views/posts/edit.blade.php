@@ -9,7 +9,7 @@
 	<div class="row justify-content-center">
 		<div class="col-md-8">
 
-			<div class="card">
+			<div class="card card-post">
 				<div class="card-body">
 
 					<!-- errorMessage Area-->
@@ -52,7 +52,7 @@
 							</div>
 
 							<div class="mb-0 justify-content-center col-6">
-								<div class="input-group">
+								<div class="mt-3 input-group">
 									<input id="title" type="text" class="form-control input-text js-input @error('title') is-invalid @enderror" name="title" value="@error('title'){{ old('title') }}@enderror{{ $post->title }}" required autocomplete="title" placeholder="" autofocus>
 									<label class="label" for="title">タイトル</label>
 								</div>
@@ -65,9 +65,11 @@
 
 						<div class="row mb-0 justify-content-center">
 							<div class="col-auto">
-								<button type="button" class="btn btn-outline-dark" onclick="history.back()">
-									{{ __('キャンセル') }}
-								</button>
+								<a href="{{ route('top') }}">
+									<button type="button" class="btn btn-outline-dark">
+										{{ __('キャンセル') }}
+									</button>
+								</a>
 							</div>
 							<div class="col-auto">
 									<button type="submit" class="ms-3 btn btn-outline-dark" name="update">

@@ -74,6 +74,24 @@ textarea.input-text {
 .card {
 	overflow: hidden;
 }
+/* トップ画面専用のレイアウト適用 */
+.card-top {
+	margin-top: 30%;
+	max-width: 100%;
+}
+/* ハンバーガーメニューから切り替わるタイミング */
+@media screen and (min-width:768px) {
+	.card-top {
+		margin-top: 6%;
+	}
+}
+/* トップ画面専用のレイアウト適用 */
+/* 投稿新規&編集専用のレイアウト適用 */
+.card-post {
+	max-width: 800px;
+}
+/* 投稿新規&編集専用のレイアウト適用 */
+
 .card .swiper {
 	overflow: visible;
 }
@@ -88,20 +106,14 @@ textarea.input-text {
 }
 .card .slide {
 	overflow: hidden;
-	width: 30em;
+	width: 15em;
 	background-color: rgba(221, 213, 213, 0.1);
 	border-radius: 4px;
 	-webkit-box-shadow: var(--box-shadow);
 			box-shadow: var(--box-shadow);
 }
-/* ひっくり返し用アニメーション */
-.card .slide-active {
-	transform: rotateY(180deg); /* 回転 */
-	transition: 3s; /* ３秒かけて */
-}
-/* ひっくり返し用アニメーション */
 .card .slide-media {
-	padding-top: 62.5%;
+	padding-top: 80%;
 }
 .card .slide-media img {
 	object-fit: contain;
@@ -128,32 +140,13 @@ textarea.input-text {
 	padding: 0;
 }
 
-
-
-@media only screen and (max-width: 1024px) {
-	html {
-	-webkit-text-size-adjust: 100%;
-	}
-	.l-inner {
-	padding: 0 4rem;
-	}
-	.pc {
-	display: none !important;
-	}
-}
-
-@media only screen and (max-width: 599px) {
-	html {
-	font-size: 50%;
-	}
-	.pc-tab {
-	display: none !important;
-	}
+@media only screen and (min-width: 599px) {
 	.card .slide {
-	width: 24rem;
+	width: 25rem;
 	}
 }
 
+/* スライドホバー時上にずらす */
 @media only screen and (min-width: 1025px) {
 	.card .slide {
 	-webkit-transition: var(--transition);
@@ -180,10 +173,35 @@ textarea.input-text {
 	opacity: 0.3;
 	}
 }
+/* スライドホバー時上にずらす */
 
-@media only screen and (min-width: 600px) {
-	.sp {
-	display: none !important;
-	}
+.notRevers {
+	transform: rotateY(180deg);
 }
 
+.slide-content {
+	overflow: auto;
+}
+
+.slide-back {
+	display: none;
+	height: 100%;
+	transform: rotateY(180deg);
+}
+
+.slide-body {
+	white-space: pre-wrap;
+	height: 14.3em;	
+}
+@media only screen and (min-width: 599px) {
+	.slide-body {
+		white-space: pre-wrap;
+		height: 23em;	
+	}
+}
+.slide-link {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	letter-spacing: 5px;
+}

@@ -12,7 +12,7 @@
 	<div class="row justify-content-center">
 		<div class="col-md-8">
 
-			<div class="card">
+			<div class="card card-post">
 				<div class="card-body">
 
 					<!-- errorMessage Area-->
@@ -33,6 +33,11 @@
 									<strong>{{ $message }}</strong>
 								</span>
 							@enderror
+							@error('post_limit_error')
+								<span class="invalid-feedback d-block  @error ('post_limit_error') error-message @enderror" role="alert">
+									<strong>{{ $message }}</strong>
+								</span>
+							@enderror
 						@endif
 					</div>
 					<!-- errorMessage Area-->
@@ -41,7 +46,7 @@
 						@csrf
 
 						<div class="row">
-							<div class="mb-0 jusify-content-center col-6 d-flex align-items-center">
+							<div class="col-6 mb-0 jusify-content-center d-flex align-items-center">
 								<div class="input-group">
 									<img id="image_prev" src="{{ asset('/image/no_image.png') }}">
 									<label class="upload-label btn btn-outline-dark">
@@ -51,8 +56,8 @@
 								</div>
 							</div>
 
-							<div class="mb-5 justify-content-center col-6">
-								<div class="input-group">
+							<div class="col-6 mb-5 justify-content-center">
+								<div class="mt-3 input-group">
 									<input id="title" type="text" class="form-control input-text js-input @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}" required autocomplete="title" placeholder="" autofocus>
 									<label class="label" for="title">タイトル</label>
 								</div>
@@ -65,9 +70,11 @@
 
 						<div class="row mb-0 justify-content-center">
 							<div class="col-auto">
-								<button type="button" onclick="history.back()" class="btn btn-outline-dark">
-									{{ __('キャンセル') }}
-								</button>
+								<a href="{{ route('top') }}">
+									<button type="button" class="btn btn-outline-dark">
+										{{ __('キャンセル') }}
+									</button>
+								</a>
 								<button type="submit" class="ms-3 btn btn-outline-dark">
 									{{ __('投　稿') }}
 								</button>

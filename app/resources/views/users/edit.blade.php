@@ -4,7 +4,6 @@
 <script src="{{ asset('js/user.js') }}" defer></script>
 @endsection
 @section('css')
-<link href="{{ asset('css/common.css')}}" rel="stylesheet">
 <link href="{{ asset('css/users/user.css')}}" rel="stylesheet">
 @endsection
 
@@ -94,7 +93,7 @@
 						<!-- box1 Area -->
 						<div id="box1" class="box prof-change">
 							<div class="row mb-5 justify-content-center">
-								<div class="col-md-6">
+								<div class="col">
 									<div class="input-group">
 										<i class="fa-regular fa-user fa-lg form-icon"></i>
 										<input id="user_name" type="text" class="form-control input-text js-input box1-item @error('user_name') is-invalid @enderror" name="user_name" value="{{ $user->user_name }}" required autocomplete="user_name" placeholder="" autofocus oninput="btnActive()">
@@ -104,7 +103,7 @@
 							</div>
 
 							<div class="row mb-5 justify-content-center">
-								<div class="col-md-6">
+								<div class="col">
 									<div class="input-group">
 										<i class="fa-regular fa-envelope fa-lg form-icon"></i>
 										<input id="email" type="email" class="form-control input-text js-input box1-item @error('email') is-invalid @enderror" name="email" value="{{ $user->email }}" required autocomplete="email" oninput="btnActive()">
@@ -113,19 +112,13 @@
 								</div>
 							</div>
 
-							<div class="row mb-5 justify-content-center">
-								<div class="col-md-6">
-									<div class="input-group">
-									</div>
-								</div>
-							</div>
 						</div>
 						<!-- box1 Area -->
 
 						<!-- box2 Area -->
 						<div id="box2" class="box pass-change">
 							<div class="row mb-5 justify-content-center">
-								<div class="col-md-6">
+								<div class="col">
 									<div class="input-group">
 										<i class="fa-solid fa-key fa-lg form-icon"></i>
 										<input id="current_password" type="password" class="form-control input-text js-input box2-item @error('password') is-invalid @enderror" name="current_password" autocomplete="current_password" oninput="btnActive()">
@@ -135,7 +128,7 @@
 							</div>
 
 							<div class="row mb-5 justify-content-center">
-								<div class="col-md-6">
+								<div class="col">
 									<div class="input-group">
 										<i class="fa-solid fa-key fa-lg form-icon"></i>
 										<input id="password" type="password" class="form-control input-text js-input box2-item @error('password') is-invalid @enderror" name="password" autocomplete="new-password" oninput="btnActive()">
@@ -145,7 +138,7 @@
 							</div>
 
 							<div class="row mb-5 justify-content-center">
-								<div class="col-md-6">
+								<div class="col">
 									<div class="input-group">
 										<i class="fa-solid fa-key fa-lg form-icon"></i>
 										<input id="password_confirm" type="password" class="form-control input-text js-input box2-item @error('password') is-invalid @enderror" name="password_confirmation" autocomplete="new-password" oninput="btnActive()">
@@ -159,7 +152,7 @@
 						<!-- box3 Area -->
 						<div id="box3" class="box user-delete">
 							<div class="row mb-5 justify-content-center">
-								<div class="col-md-6">
+								<div class="col">
 									<h2>{{ __('アカウント削除') }}</h2><br>
 									<p>{{ __('アカウントを削除すると投稿したデータは全て削除されます。') }}<br>{{ __('アカウントを削除しますか？') }}</p>
 								</div>

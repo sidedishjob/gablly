@@ -37,7 +37,7 @@
 						@csrf
 
 						<div class="row mb-5 justify-content-center">
-							<div class="col-md-6">
+							<div class="col">
 								<div class="input-group">
 									<i class="fa-regular fa-user fa-lg form-icon"></i>
 									<input id="user_name" type="text" class="form-control input-text js-input @error('user_name') is-invalid @enderror" name="user_name" value="{{ old('user_name') }}" required autocomplete="user_name" placeholder="" autofocus>
@@ -47,7 +47,7 @@
 						</div>
 
 						<div class="row mb-5 justify-content-center">
-							<div class="col-md-6">
+							<div class="col">
 								<div class="input-group">
 									<i class="fa-regular fa-envelope fa-lg form-icon"></i>
 									<input id="email" type="email" class="form-control input-text js-input @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -57,7 +57,7 @@
 						</div>
 
 						<div class="row mb-5 justify-content-center">
-							<div class="col-md-6">
+							<div class="col">
 								<div class="input-group">
 									<i class="fa-solid fa-key fa-lg form-icon"></i>
 									<input id="password" type="password" class="form-control input-text js-input @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -67,7 +67,7 @@
 						</div>
 
 						<div class="row mb-5 justify-content-center">
-							<div class="col-md-6">
+							<div class="col">
 								<div class="input-group">
 									<i class="fa-solid fa-key fa-lg form-icon"></i>
 									<input id="password_confirm" type="password" class="form-control input-text js-input" name="password_confirmation" required autocomplete="new-password">
