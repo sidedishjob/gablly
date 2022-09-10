@@ -325,3 +325,104 @@ function userCheck() {
 	}
 }
 
+//パスワード再設定（パスワードを忘れた方、パスワード再設定時）
+function resetPasswordCheck() {
+	//入力値取得（メールアドレス、パスワード）
+	const email = document.getElementById('email');
+	const password = document.getElementById('password');
+	const passwordConfirm = document.getElementById('password_confirm');
+
+	//エラー初期化
+	errorInit([email, password, passwordConfirm]);
+
+	//エラー判定
+	let isError = false;
+
+	//必須チェック
+	if (email.value == '') {
+		//メールアドレス
+		createError(email, 'メールアドレス' + requiredMessage);
+		isError = true;
+	}
+	if (password.value == '') {
+		//パスワード
+		createError(password, 'パスワード' + requiredMessage);
+		isError = true;
+	}
+
+	//文字数チェック
+	if (password.value.length < minLength8) {
+		//最小:パスワード
+		createError(password, 'パスワードは、' + minLength8 + minLengthMessage);
+		isError = true;
+	}
+	if (email.value.length > maxLength100) {
+		//最大:メールアドレス
+		createError(email, 'メールアドレスは、' + maxLength100 + maxLengthMessage);
+		isError = true;
+	}
+	if (password.value.length > maxLength100) {
+		//最大:パスワード
+		createError(password, 'パスワードは、' + maxLength100 + maxLengthMessage);
+		isError = true;
+	}
+
+	//形式チェック
+	if (!emailRegexp.test(email.value)) {
+		//メールアドレス
+		createError(email, 'メールアドレス' + notRegexMessage);
+		isError = true;
+	}
+
+	//一致チェック
+	if (!(password.value === passwordConfirm.value)) {
+		//パスワード = パスワード（再入力）
+		createError(password, 'パスワード' + confirmMessage);
+		isError = true;
+	}
+
+	if (isError) {
+		return false;
+	} else {
+		return true;
+	}
+}
+
+//パスワード再設定（パスワードを忘れた方、パスワード再設定メール送信時）
+function resetPasswordMailCheck() {
+	//入力値取得（メールアドレス、パスワード）
+	const email = document.getElementById('email');
+
+	//エラー初期化
+	errorInit([email]);
+
+	//エラー判定
+	let isError = false;
+
+	//必須チェック
+	if (email.value == '') {
+		//メールアドレス
+		createError(email, 'メールアドレス' + requiredMessage);
+		isError = true;
+	}
+
+	//文字数チェック
+	if (email.value.length > maxLength100) {
+		//最大:メールアドレス
+		createError(email, 'メールアドレスは、' + maxLength100 + maxLengthMessage);
+		isError = true;
+	}
+
+	//形式チェック
+	if (!emailRegexp.test(email.value)) {
+		//メールアドレス
+		createError(email, 'メールアドレス' + notRegexMessage);
+		isError = true;
+	}
+
+	if (isError) {
+		return false;
+	} else {
+		return true;
+	}
+}

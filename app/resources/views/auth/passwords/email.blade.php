@@ -10,15 +10,15 @@
 				<div class="card-body">
 
 					<!-- errorMessage Area-->
-					@if($errors->any())
-						<div class="mb-5 pt-1 pb-1 error-area text-center">
+					<div id="error_area"  class="mb-5 pt-1 pb-1 error-area text-center @if($errors->any()) d-block @endif">
+						@if($errors->any())
 							@error('email')
-								<span class="invalid-feedback d-block @error ('email') error-message @enderror" role="alert">
+								<span class="invalid-feedback @error ('email') error-message @enderror" role="alert">
 									<strong>{{ $message }}</strong>
 								</span>
 							@enderror
-						</div>
-					@endif
+						@endif
+					</div>
 					<!-- errorMessage Area-->
 					<!-- successMessage Area-->
 					@if(session('status'))
@@ -36,15 +36,15 @@
 							{{ __('メールアドレス宛に、パスワード再設定ページのURLが記載されたメールをお送り致します。') }}</p>
 					</div>
 
-					<form method="POST" action="{{ route('password.email') }}">
+					<form method="POST" action="{{ route('password.email') }}" onsubmit="return resetPasswordMailCheck()">
 						@csrf
 
 						<div class="row mb-4 justify-content-center">
-							<div class="col-md-6">
+							<div class="col">
 								<div class="input-group">
 									<i class="fa-regular fa-envelope fa-lg form-icon"></i>
 									<input id="email" type="email" class="form-control input-text js-input @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-									<label class="label" for="email">メールアドレスを入力してください</label>
+									<label class="label" for="email">{{ __('メールアドレスを入力してください') }}</label>
 								</div>
 							</div>
 						</div>

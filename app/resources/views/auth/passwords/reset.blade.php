@@ -9,10 +9,10 @@
 			<div class="card">
 				<div class="card-body">
 					<!-- errorMessage Area-->
-					@if($errors->any())
-						<div class="mb-5 pt-1 pb-1 error-area text-center">
+					<div id="error_area"  class="mb-5 pt-1 pb-1 error-area text-center @if($errors->any()) d-block @endif">
+						@if($errors->any())
 							@error('email')
-								<span class="invalid-feedback d-block @error ('email') error-message @enderror" role="alert">
+								<span class="invalid-feedback @error ('email') error-message @enderror" role="alert">
 									<strong>{{ $message }}</strong>
 								</span>
 							@enderror
@@ -21,17 +21,17 @@
 									<strong>{{ $message }}</strong>
 								</span>
 							@enderror
-						</div>
-					@endif
+						@endif
+					</div>
 					<!-- errorMessage Area-->
 
-					<form method="POST" action="{{ route('password.update') }}">
+					<form method="POST" action="{{ route('password.update') }}" onsubmit="return resetPasswordCheck()">
 						@csrf
 
 						<input type="hidden" name="token" value="{{ $token }}">
 
-						<div class="row mb-4 justify-content-center">
-							<div class="col-md-6">
+						<div class="row mb-5 justify-content-center">
+							<div class="col">
 								<div class="input-group">
 									<i class="fa-regular fa-envelope fa-lg form-icon"></i>
 									<input id="email" type="email" class="form-control input-text js-input @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
@@ -40,8 +40,8 @@
 							</div>
 						</div>
 
-						<div class="row mb-4 justify-content-center">
-							<div class="col-md-6">
+						<div class="row mb-5 justify-content-center">
+							<div class="col">
 								<div class="input-group">
 									<i class="fa-solid fa-key fa-lg form-icon"></i>
 									<input id="password" type="password" class="form-control input-text js-input @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -51,7 +51,7 @@
 						</div>
 
 						<div class="row mb-5 justify-content-center">
-							<div class="col-md-6">
+							<div class="col">
 								<div class="input-group">
 									<i class="fa-solid fa-key fa-lg form-icon"></i>
 									<input id="password_confirm" type="password" class="form-control input-text js-input" name="password_confirmation" autocomplete="new-password">
