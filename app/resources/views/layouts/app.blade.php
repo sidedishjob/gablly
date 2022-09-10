@@ -35,11 +35,9 @@
 	<div id="app">
 
 		<!-- header -->
-		<nav class="navbar navbar-expand-md navbar-light">
+		<nav id="header-nav" class="navbar navbar-expand-md navbar-light header-about">
 			<div class="container">
-				<a class="navbar-brand" href="{{ route('top') }}" style="color: white; font-weight: bold; font-size: 200%;">
-					<!-- TODO ロゴ画像に設定 -->
-					<!-- <img src="{{ asset('image/logo.png')}} alt="logo""> -->
+				<a class="fw-bold fs-2 text-white navbar-brand" href="{{ route('top') }}">
 					{{ config('app.name', 'gablly') }}
 				</a>
 
@@ -100,16 +98,14 @@
 
 		<!-- footer -->
 		<footer>
-			<!-- TODO ロゴ画像に設定 -->
-			<!-- <img src="{{ asset('image/logo.png')}}" alt="logo" class="justify-content-center"> -->
-			<p style="font-size: large; color: black;">gablly</p><!-- logo画像入れたら削除 -->
+			<p class="fs-4">{{ config('app.name', 'gablly') }}</p>
 			<ul class="nav justify-content-center fw-bold">
 				<li class="nav-item">
 					<a class="nav-link" href="{{ route('top') }}"><span class="btn-text">トップページへ<span class="mrg-15">&gt;</span></span></a>
 				</li>
 				@if (Auth::check())
 					<li class="nav-item">
-						<a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><span class="btn-text">ログアウト<span class="mrg-15">&gt;</span></span></a>
+						<a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><span class="btn-text">{{ __('ログアウト') }}<span class="mrg-15">&gt;</span></span></a>
 
 						<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
 							@csrf
@@ -118,18 +114,18 @@
 				@else
 					<li class="nav-item">
 						<a class="nav-link" href="{{ route('login') }}">
-							<span class="btn-text">ログイン<span class="mrg-15">&gt;</span></span>
+							<span class="btn-text">{{ __('ログイン') }}<span class="mrg-15">&gt;</span></span>
 						</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="{{ route('register') }}">
-							<span class="btn-text">会員登録<span class="mrg-15">&gt;</span></span>
+							<span class="btn-text">{{ __('会員登録') }}<span class="mrg-15">&gt;</span></span>
 						</a>
 					</li>
 				@endif
 				<li class="nav-item">
 					<a class="nav-link" href="{{ route('contact') }}">
-						<span class="btn-text">お問い合わせ<span class="mrg-15">&gt;</span></span>
+						<span class="btn-text">{{ __('お問い合わせ') }}<span class="mrg-15">&gt;</span></span>
 					</a>
 				</li>
 			</ul>
