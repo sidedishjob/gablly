@@ -63,10 +63,10 @@
 
 					<div class="row mt-4 justify-content-center">
 						<div class="col-auto">
-							<a href="{{ route('top') }}">
-							<button type="button"  class="btn btn-outline-dark">
-								{{ __('トップページへ戻る') }}
-							</button>
+							<a href="{{ route('top') }}" tabindex="-1">
+								<button type="button"  class="btn btn-outline-dark">
+									{{ __('トップページへ戻る') }}
+								</button>
 							</a>
 						</div>
 					</div>

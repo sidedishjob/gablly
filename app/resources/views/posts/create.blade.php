@@ -70,7 +70,7 @@
 
 						<div class="row mb-0 justify-content-center">
 							<div class="col-auto">
-								<a href="{{ route('top') }}">
+								<a href="{{ route('top') }}" tabindex="-1">
 									<button type="button" class="btn btn-outline-dark">
 										{{ __('キャンセル') }}
 									</button>
