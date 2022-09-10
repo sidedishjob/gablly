@@ -50,7 +50,7 @@
 								<div class="input-group">
 									<img id="image_prev" src="{{ asset('/image/no_image.png') }}">
 									<label class="upload-label btn btn-outline-dark">
-										画像を選択
+										{{ __('画像を選択') }}
 										<input id="image_path" type="file" accept="image/*"  name="image_path">
 									</label>
 								</div>
@@ -59,11 +59,11 @@
 							<div class="col-6 mb-5 justify-content-center">
 								<div class="mt-3 input-group">
 									<input id="title" type="text" class="form-control input-text js-input @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}" required autocomplete="title" placeholder="" autofocus>
-									<label class="label" for="title">タイトル</label>
+									<label class="label" for="title">{{ __('タイトル') }}</label>
 								</div>
 								<div class="input-group">
 									<textarea id="body" type="text" class="form-control input-text js-input @error('body') is-invalid @enderror" name="body" value="{{ old('body') }}" required autocomplete="コンテンツ" placeholder="" autofocus></textarea>
-									<label class="label label-body" for="body">コンテンツ</label>
+									<label class="label label-body" for="body">{{ __('コンテンツ') }}</label>
 								</div>
 							</div>
 						</div>

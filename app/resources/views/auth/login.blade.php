@@ -43,7 +43,7 @@
 								<div class="input-group">
 									<i class="fa-regular fa-user fa-lg form-icon"></i>
 									<input id="user_name" type="text" class="form-control input-text js-input @error('user_name') is-invalid @enderror" name="user_name" value="{{ old('user_name') }}" required autocomplete="user_name" autofocus>
-									<label class="label" for="user_name">ユーザー名またはメールアドレス</label>
+									<label class="label" for="user_name">{{ __('ユーザー名またはメールアドレス') }}</label>
 								</div>
 							</div>
 						</div>
@@ -53,7 +53,7 @@
 								<div class="input-group">
 									<i class="fa-solid fa-key fa-lg form-icon"></i>
 									<input id="password" type="password" class="form-control input-text js-input @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-									<label class="label" for="password">パスワード</label>
+									<label class="label" for="password">{{ __('パスワード') }}</label>
 								</div>
 							</div>
 						</div>

@@ -35,7 +35,7 @@
 								<div class="input-group">
 									<i class="fa-regular fa-envelope fa-lg form-icon"></i>
 									<input id="email" type="email" class="form-control input-text js-input @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
-									<label class="label" for="email">メールアドレス</label>
+									<label class="label" for="email">{{ __('メールアドレス') }}</label>
 								</div>
 							</div>
 						</div>
@@ -45,7 +45,7 @@
 								<div class="input-group">
 									<i class="fa-solid fa-key fa-lg form-icon"></i>
 									<input id="password" type="password" class="form-control input-text js-input @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-									<label class="label" for="password">パスワード</label>
+									<label class="label" for="password">{{ __('パスワード') }}</label>
 								</div>
 							</div>
 						</div>
@@ -55,7 +55,7 @@
 								<div class="input-group">
 									<i class="fa-solid fa-key fa-lg form-icon"></i>
 									<input id="password_confirm" type="password" class="form-control input-text js-input" name="password_confirmation" autocomplete="new-password">
-									<label class="label" for="password_confirm">新しいパスワード（再入力）</label>
+									<label class="label" for="password_confirm">{{ __('新しいパスワード（再入力）') }}</label>
 								</div>
 							</div>
 						</div>

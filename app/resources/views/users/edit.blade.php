@@ -97,7 +97,7 @@
 									<div class="input-group">
 										<i class="fa-regular fa-user fa-lg form-icon"></i>
 										<input id="user_name" type="text" class="form-control input-text js-input box1-item @error('user_name') is-invalid @enderror" name="user_name" value="{{ $user->user_name }}" required autocomplete="user_name" placeholder="" autofocus oninput="btnActive()">
-										<label class="label" for="user_name">ユーザー名</label>
+										<label class="label" for="user_name">{{ __('ユーザー名') }}</label>
 									</div>
 								</div>
 							</div>
@@ -107,7 +107,7 @@
 									<div class="input-group">
 										<i class="fa-regular fa-envelope fa-lg form-icon"></i>
 										<input id="email" type="email" class="form-control input-text js-input box1-item @error('email') is-invalid @enderror" name="email" value="{{ $user->email }}" required autocomplete="email" oninput="btnActive()">
-										<label class="label" for="email">メールアドレス</label>
+										<label class="label" for="email">{{ __('メールアドレス') }}</label>
 									</div>
 								</div>
 							</div>
@@ -122,7 +122,7 @@
 									<div class="input-group">
 										<i class="fa-solid fa-key fa-lg form-icon"></i>
 										<input id="current_password" type="password" class="form-control input-text js-input box2-item @error('password') is-invalid @enderror" name="current_password" autocomplete="current_password" oninput="btnActive()">
-										<label class="label" for="current_password">現在のパスワード</label>
+										<label class="label" for="current_password">{{ __('現在のパスワード') }}</label>
 									</div>
 								</div>
 							</div>
@@ -132,7 +132,7 @@
 									<div class="input-group">
 										<i class="fa-solid fa-key fa-lg form-icon"></i>
 										<input id="password" type="password" class="form-control input-text js-input box2-item @error('password') is-invalid @enderror" name="password" autocomplete="new-password" oninput="btnActive()">
-										<label class="label" for="password">新しいパスワード</label>
+										<label class="label" for="password">{{ __('新しいパスワード') }}</label>
 									</div>
 								</div>
 							</div>
@@ -142,7 +142,7 @@
 									<div class="input-group">
 										<i class="fa-solid fa-key fa-lg form-icon"></i>
 										<input id="password_confirm" type="password" class="form-control input-text js-input box2-item @error('password') is-invalid @enderror" name="password_confirmation" autocomplete="new-password" oninput="btnActive()">
-										<label class="label" for="password_confirm">新しいパスワード（再入力）</label>
+										<label class="label" for="password_confirm">{{ __('新しいパスワード（再入力）') }} </label>
 									</div>
 								</div>
 							</div>

@@ -86,26 +86,26 @@
 	<div class="container">
 		<div class="text-body fw-bold">
 			<p>
-				一つとして同じのない<br><br>
-				あなたの完全オリジナル<br><br>
-				あなたにしか作れない<br><br>
-				あなたの記憶を表現した美術館<br><br>
-				人生のギャラリー<br><br>
-				etc...
+				{{ __('一つとして同じのない') }}<br><br>
+				{{ __('あなたの完全オリジナル') }}<br><br>
+				{{ __('あなたにしか作れない') }}<br><br>
+				{{ __('あなたの記憶を表現した美術館') }}<br><br>
+				{{ __('人生のギャラリー') }}<br><br>
+				{{ __('etc...') }}
 			</p>
 			<p>
-				山  人  絵  植物  食  建築<br><br>
-				どんな展示にしてもいい
+				{{ __('山  人  絵  植物  食  建築') }}<br><br>
+				{{ __('どんな展示にしてもいい') }}
 			</p>
 			<p>
-				統一されているのもよし、バラバラでもよし
+				{{ __('統一されているのもよし、バラバラでもよし') }}
 			</p>
 		</div>
 		<div class="link-item">
 			@guest
-				<a class="btn" href="{{ route('register') }}">会員登録 ▶</a>
+				<a class="btn" href="{{ route('register') }}">{{ __('会員登録 ▶') }}</a>
 			@else
-				<a class="btn" href="#">会員登録 ▶</a>
+				<a class="btn" href="#">{{ __('会員登録 ▶') }}</a>
 			@endguest
 		</div>
 	</div>

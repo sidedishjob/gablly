@@ -42,7 +42,7 @@
 								<div class="input-group">
 									<i class="fa-regular fa-user fa-lg form-icon"></i>
 									<input id="name" type="text" class="form-control input-text js-input @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" placeholder="" autofocus>
-									<label class="label" for="name">お名前</label>
+									<label class="label" for="name">{{ __('お名前') }}</label>
 								</div>
 							</div>
 						</div>
@@ -52,7 +52,7 @@
 								<div class="input-group">
 									<i class="fa-regular fa-envelope fa-lg form-icon"></i>
 									<input id="email" type="email" class="form-control input-text js-input @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-									<label class="label" for="email">メールアドレス</label>
+									<label class="label" for="email">{{ __('メールアドレス') }}</label>
 								</div>
 							</div>
 						</div>
@@ -62,7 +62,7 @@
 								<div class="input-group">
 									<i class="fa-solid fa-comments fa-lg form-icon"></i>
 									<textarea id="message" type="text" class="form-control input-text js-input @error('message') is-invalid @enderror" name="message" required autocomplete="コンテンツ" placeholder="" autofocus>{{ old('message') }}</textarea>
-									<label class="label label-body" for="message">お問い合わせ内容</label>	
+									<label class="label label-body" for="message">{{ __('お問い合わせ内容') }}</label>	
 								</div>
 							</div>
 						</div>
