@@ -18,10 +18,8 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes(['verify' => true]);
 
-//ドメインでアクセスしてきた時用（http://gablly.com/）
+//ドメインでアクセスしてきた時用（http://gablly.art/）
 Route::get('/', [PostController::class, 'index'])->middleware('verified')->name('top');
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //説明画面表示
 Route::get('/about', function() {
@@ -42,4 +40,3 @@ Route::post('users/update', [UserController::class, 'updateOrChangeOrDelete'])->
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 //お問い合わせメール送信
 Route::post('/contact/thanks', [ContactController::class, 'send'])->name('contact.send');
-
