@@ -1,9 +1,8 @@
-// 入力欄制御 (ラベル位置)
+//入力欄制御 (ラベル位置)
 const input_name = document.querySelectorAll('.js-input');
 
 window.addEventListener('load', function () {
 	input_name.forEach(function (target) {
-		// console.log('onload' + target.id);
 		if (target.value) {
 			target.classList.add('not-empty');
 		} else {
@@ -13,7 +12,6 @@ window.addEventListener('load', function () {
 });
 input_name.forEach(function (target) {
 	target.addEventListener('blur', function() {
-		// console.log('blur' + this.id);
 		if (this.value) {
 			this.classList.add('not-empty');
 		} else {

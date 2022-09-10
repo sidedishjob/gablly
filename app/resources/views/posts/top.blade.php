@@ -31,7 +31,7 @@
 											<!-- Front -->
 											<div class="slide-front slide-front-item-{{$post->id}}">
 												<div class="slide-media img-cover">
-													<img src="{{ asset($post->image_path) }}" alt="Phot by $user_name on $day.">
+													<img src="{{ asset($post->image_path) }}" alt="Phot by {{ ($post->title) }} @if(isset( $post->created_at )) on {{ ($post->created_at->format('y-m-d')) }} @endif .">
 												</div>
 												<div class="slide-content">
 													<h2 class="slide-title text-title fs-5 fw-bold mt-4">{{ __($post->title) }}</h2>

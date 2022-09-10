@@ -2,8 +2,7 @@
 
 // スライダー用JS
 // 画像スライダー
-// const mySpeed = 20000;
-const mySpeed = 20000000;
+const mySpeed = 20000;
 const slideLength = document.querySelectorAll('.card .swiper-slide').length;
 
 const changeTranslate = (swiper) => {
@@ -126,4 +125,3 @@ const rotationAnimation = (obj, slideFrontItems, slideBackItems, deg) =>{
 		obj.style.webkitTransform = 'rotateY(' + deg + 'deg)';
 	}
 }
-

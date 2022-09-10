@@ -115,7 +115,6 @@ body {
 	-webkit-transform: translateX(-15%);
 	-ms-transform: translateX(-15%);
 }
-
 /* section-2 */
 
 
@@ -128,7 +127,7 @@ body {
 
 /* section-4 */
 #box4 {
-	background: linear-gradient(rgba(255,255,255,0) 0, #fff 90%), url(../image/about_bg-wall_2.jpg);
+	background: linear-gradient(rgba(255,255,255,0) 0, rgba(255, 255, 255, 1) 90%), url(../image/about_bg-wall_2.jpg);
 }
 
 .-title-text {
@@ -137,7 +136,7 @@ body {
 	transform: translateX(-50%);
 	-webkit-transform: translateX(-50%);
 	-ms-transform: translateX(-50%);
-	color: #758392;
+	color: rgba(117,131,146,1);
 }
 
 .text-body {
@@ -199,7 +198,7 @@ body {
 
 .link-item a:hover {
 	background-position: -100% 0;
-	color: #fff;
+	color: rgba(255, 255, 255, 1);
 }
 
 /* PC セクション4 .logo-item */

@@ -7,14 +7,14 @@
 	padding: 0px;
 }
 
-@media only screen and (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
 	html {
 	-webkit-text-size-adjust: 100%;
 	}
 }
 
 /* スマホ フォントサイズ調整 */
-@media only screen and (max-width: 599px) {
+@media screen and (max-width: 576px) {
 	html {
 	font-size: 85%;
 	}
@@ -33,7 +33,7 @@ li {
 a, a:hover {
 	display: inline-block;
 	text-decoration: none;
-	color: white;
+	color: rgba(255, 255, 255, 1);
 }
 
 img {
@@ -66,7 +66,7 @@ img {
 }
 
 /* スマホスクロールバー非表示 */
-@media screen and (max-width:767px) {
+@media screen and (max-width:768px) {
 	.container {
 		scrollbar-width: none; /*Firefox対応のスクロールバー非表示コード*/  
 		-ms-overflow-style: none;/*Internet Explore対応のスクロールバー非表示コード*/   
@@ -106,6 +106,8 @@ img {
 	margin-left: auto;
 	margin-right: auto;
 	max-width: 500px;
+	background-color: transparent;
+	border: none;
 }
 /* ハンバーガーメニューから切り替わるタイミング */
 @media screen and (min-width:768px) {
@@ -133,21 +135,21 @@ img {
 	background-color: rgba(73, 135, 172, 0.3);
 	border: solid;
 	border-radius: 5px;
-	color: white;
+	color: rgba(255, 255, 255, 1);
 }
 
 .email-verify-area {
 	background-color: rgba(100, 80, 10, 0.3);
 	border: solid;
 	border-radius: 5px;
-	color: white;
+	color: rgba(255, 255, 255, 1);
 }
 
 /* + アイコン位置 */
 .form-icon {
 	display: flex;
 	align-items: center;
-	color: #888;
+	color: rgba(136, 136, 136, 1);
 }
 /* + アイコン位置 */
 
@@ -155,7 +157,7 @@ img {
 /* 入力欄 */
 .form-control {
 	background-color: transparent;
-	border-bottom: 2px solid #888;
+	border-bottom: 2px solid rgba(136, 136, 136, 1);
 	/* 初期設定の枠線消去 */
 	border-top: none;
 	border-left: none;
@@ -165,7 +167,7 @@ img {
 .form-control:focus {
 	background-color: rgba(255, 255, 255, 0.5);
 	transition: 250ms background ease-in;
-	border-bottom: 2px solid #888;
+	border-bottom: 2px solid rgba(136, 136, 136, 1);
 	box-shadow: none;
 }
 /* + ラベルが上に移動 */
@@ -192,7 +194,7 @@ img {
 	bottom: 8px;
 	font-family: Lusitana, serif;
 	font-size: 16px;
-	color: #888;
+	color: rgba(136, 136, 136, 1);
 	cursor: text;
 	transition: transform 0.2s ease-in-out;
 }
@@ -244,7 +246,7 @@ footer p {
 	display: inline-block;
 	margin: 5px;
 	font-weight: bold;
-	color: black;
+	color: rgba(0, 0, 0, 1);
 }
 
 footer .nav-link {
@@ -252,9 +254,9 @@ footer .nav-link {
 	padding: 0;
 }
 /* タブレット & PC footer nav-link */
-@media screen and (min-width:599px) {
+@media screen and (min-width:576px) {
 	footer .nav-link {
-		margin: 16px 30px;
+		margin: 16px 23px;
 	}
 }
 /* footer */
@@ -337,7 +339,7 @@ footer .nav-link {
 	position: absolute;
 	width: 100%;
 	height: 100vh;
-	background-color: #ffffff;
+	background-color: rgba(255, 255, 255, 1);
 	/* 最前面 */
 	z-index: 99;
 }
@@ -346,15 +348,3 @@ footer .nav-link {
 	animation: fadeOut 3s forwards;
 }
 /* loading */
-
-/* test */
-.card {
-	/* opacity: 0.1; */
-	background-color: transparent;
-	border: none;
-}
-
-.card-header {
-	border: none;
-}
-

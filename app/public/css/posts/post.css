@@ -29,7 +29,6 @@ textarea.input-text {
 }
 /* 画像周り */
 
-
 /* 一覧画面 */
 .post-item img {
 	max-height: 300px;
@@ -140,14 +139,14 @@ textarea.input-text {
 	padding: 0;
 }
 
-@media only screen and (min-width: 599px) {
+@media screen and (min-width: 576px) {
 	.card .slide {
 	width: 25rem;
 	}
 }
 
 /* スライドホバー時上にずらす */
-@media only screen and (min-width: 1025px) {
+@media screen and (min-width: 1024px) {
 	.card .slide {
 	-webkit-transition: var(--transition);
 	transition: var(--transition);
@@ -193,7 +192,7 @@ textarea.input-text {
 	white-space: pre-wrap;
 	height: 14.3em;	
 }
-@media only screen and (min-width: 599px) {
+@media screen and (min-width: 576px) {
 	.slide-body {
 		white-space: pre-wrap;
 		height: 23em;	
