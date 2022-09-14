@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
@@ -45,15 +45,16 @@ class UserController extends Controller
 	public function update(Request $request)
 	{
 		$id = Auth::id();
+		$myEmail = Auth::user()->email;
+		$myUserName = Auth::user()->user_name;
 		//レコードを検索
 		$user = User::findOrFail($id);
 
 		//新しいパスワードのバリデーションチェック
 		$validator = Validator::make($request->all(), [
-			'user_name' => ['required','string', 'min:4', 'max:30', new alpha_num_hyphen_underScore_dot_check()],
-			'email' => ['required', 'string', 'email', 'max:100'],
+			'user_name' => ['required', 'string', 'min:4', 'max:30', new alpha_num_hyphen_underScore_dot_check(), Rule::unique('users', 'user_name')->whereNull('deleted_at')->whereNot('user_name', $myUserName)],
+			'email' => ['required', 'string', 'email', 'max:100', Rule::unique('users', 'email')->whereNull('deleted_at')->whereNot('email', $myEmail)],
 		]);
-
 
 		//楽観的排他制御（version）
 		if (!($request->version == $user->version)) {
@@ -72,6 +73,13 @@ class UserController extends Controller
 			return redirect()->back()->withErrors($validator);
 		}
 
+		//メールアドレス変更判定フラグ
+		$isMailChangeFlg = false;
+		if ($request->email != $user->email) {
+			//メールアドレスに変更がある場合、メール認証リセット
+			$isMailChangeFlg = true;
+			$user->email_verified_at = null;
+		}
 
 		//入力値を設定
 		//変更があれば更新
@@ -82,7 +90,13 @@ class UserController extends Controller
 		//保存（更新）
 		$user->save();
 
-		return redirect()->to('users/edit')->with('success_message', 'プロフィールを更新しました。');
+		if ($isMailChangeFlg) {
+			//メールアドレスに変更がある場合、認証用メール送信
+			$user->sendEmailVerificationNotification();
+			return redirect()->to('users/edit')->with(['success_message' => 'プロフィールを更新しました。', 'email_verify_message' => 'メールアドレス変更の確認メールを送信しました。']);
+		} else {
+			return redirect()->to('users/edit')->with('success_message', 'プロフィールを更新しました。');
+		}
 	}
 
 	/**
@@ -139,12 +153,28 @@ class UserController extends Controller
 	}
 
 	/**
-	 * プロフィール更新またはパスワード変更の判定
+	 * ユーザー削除処理
 	 *
 	 * @param Request $request
 	 * @return void
 	 */
-	public function updateOrChange(Request $request)
+	public function destroy(Request $request)
+	{
+		$id = $request->id;
+
+		//論理削除実行（deleted_atを更新）
+		User::findOrFail($id)->delete();
+
+		return redirect()->to('/');
+	}
+
+	/**
+	 * プロフィール更新またはパスワード変更またはユーザー削除の判定
+	 *
+	 * @param Request $request
+	 * @return void
+	 */
+	public function updateOrChangeOrDelete(Request $request)
 	{
 		if ($request->has('update')) {
 			//プロフィール更新処理
@@ -152,6 +182,9 @@ class UserController extends Controller
 		} else if ($request->has('change')) {
 			//パスワード変更処理
 			$this->changePassword($request);
+		} else if ($request->has('delete')) {
+			//ユーザー削除処理
+			$this->destroy($request);
 		}
 
 		return redirect()->to('users/edit');

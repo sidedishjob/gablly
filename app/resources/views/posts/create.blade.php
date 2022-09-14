@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title', '新規投稿')
 @section('js')
-<script src="{{ asset('js/post.js') }}" defer></script>
+<script src="{{ asset('js/posts/create.js') }}" defer></script>
 @endsection
 @section('css')
 <link href="{{ asset('css/posts/post.css')}}" rel="stylesheet">
@@ -12,12 +12,12 @@
 	<div class="row justify-content-center">
 		<div class="col-md-8">
 
-			<div class="card">
+			<div class="card card-post">
 				<div class="card-body">
 
 					<!-- errorMessage Area-->
-					@if($errors->any())
-						<div class="mb-5 pt-1 pb-1 error-area text-center">
+					<div id="error_area" class="mb-5 pt-1 pb-1 error-area text-center @if($errors->any()) d-block @endif">
+						@if($errors->any())
 							@error('title')
 								<span class="invalid-feedback d-block @error ('title') error-message @enderror" role="alert">
 									<strong>{{ $message }}</strong>
@@ -33,41 +33,50 @@
 									<strong>{{ $message }}</strong>
 								</span>
 							@enderror
-						</div>
-					@endif
+							@error('post_limit_error')
+								<span class="invalid-feedback d-block  @error ('post_limit_error') error-message @enderror" role="alert">
+									<strong>{{ $message }}</strong>
+								</span>
+							@enderror
+						@endif
+					</div>
 					<!-- errorMessage Area-->
 
-					<form method="POST" action="/posts" enctype="multipart/form-data">
+					<form method="POST" action="/posts" enctype="multipart/form-data" onsubmit="return postCheck()">
 						@csrf
 
 						<div class="row">
-							<div class="mb-0 jusify-content-center col-6 d-flex align-items-center">
+							<div class="col-6 mb-0 jusify-content-center d-flex align-items-center">
 								<div class="input-group">
 									<img id="image_prev" src="{{ asset('/image/no_image.png') }}">
 									<label class="upload-label btn btn-outline-dark">
-										画像を選択
-										<input id="image_path" type="file" accept="image/*"  name="image_path" required>
+										{{ __('画像を選択') }}
+										<input id="image_path" type="file" accept="image/*"  name="image_path">
 									</label>
 								</div>
 							</div>
 
-							<div class="mb-5 justify-content-center col-6">
-								<div class="input-group">
+							<div class="col-6 mb-5 justify-content-center">
+								<div class="mt-3 input-group">
+									<i class="fa-regular fa-image fa-lg form-icon"></i>
 									<input id="title" type="text" class="form-control input-text js-input @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}" required autocomplete="title" placeholder="" autofocus>
-									<label class="label" for="title">タイトル</label>
+									<label class="label" for="title">{{ __('タイトル') }}</label>
 								</div>
 								<div class="input-group">
+									<i class="fa-regular fa-keyboard fa-lg form-icon"></i>
 									<textarea id="body" type="text" class="form-control input-text js-input @error('body') is-invalid @enderror" name="body" value="{{ old('body') }}" required autocomplete="コンテンツ" placeholder="" autofocus></textarea>
-									<label class="label label-body" for="body">コンテンツ</label>
+									<label class="label label-body" for="body">{{ __('コンテンツ') }}</label>
 								</div>
 							</div>
 						</div>
 
 						<div class="row mb-0 justify-content-center">
 							<div class="col-auto">
-								<button type="button" onclick="history.back()" class="btn btn-outline-dark">
-									{{ __('キャンセル') }}
-								</button>
+								<a href="{{ route('top') }}" tabindex="-1">
+									<button type="button" class="btn btn-outline-dark">
+										{{ __('キャンセル') }}
+									</button>
+								</a>
 								<button type="submit" class="ms-3 btn btn-outline-dark">
 									{{ __('投　稿') }}
 								</button>

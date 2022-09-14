@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title', 'お問い合わせ')
 @section('css')
-<link href="{{ asset('css/auth/common.css')}}" rel="stylesheet">
+<link href="{{ asset('css/contacts/contact.css')}}" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -12,72 +12,65 @@
 			<div class="card">
 				<div class="card-body">
 
-					<form method="POST" action="{{ route('register') }}">
+					<!-- errorMessage Area-->
+					<div id="error_area" class="mb-5 pt-1 pb-1 error-area text-center @if($errors->any()) d-block @endif">
+						@if($errors->any())
+							@error('name')
+								<span class="invalid-feedback d-block @error ('name') error-message @enderror" role="alert">
+									<strong>{{ $message }}</strong>
+								</span>
+							@enderror
+							@error('email')
+								<span class="invalid-feedback d-block @error ('email') error-message @enderror" role="alert">
+									<strong>{{ $message }}</strong>
+								</span>
+							@enderror
+							@error('message')
+								<span class="invalid-feedback d-block @error ('message') error-message @enderror" role="alert">
+									<strong>{{ $message }}</strong>
+								</span>
+							@enderror
+						@endif
+					</div>
+					<!-- errorMessage Area-->
+
+					<form method="POST" action="{{ route('contact.send') }}" onsubmit="return contactCheck()">
 						@csrf
 
-						<div class="row mb-4 justify-content-center">
-							<div class="col-md-6">
+						<div class="row mb-5 justify-content-center">
+							<div class="col">
 								<div class="input-group">
 									<i class="fa-regular fa-user fa-lg form-icon"></i>
 									<input id="name" type="text" class="form-control input-text js-input @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" placeholder="" autofocus>
-									<label class="label" for="name">User Name</label>
-	
-									@error('name')
-										<span class="invalid-feedback" role="alert">
-											<strong>{{ $message }}</strong>
-										</span>
-									@enderror
-
-								</div>
-							</div>
-						</div>
-
-						<div class="row mb-4 justify-content-center">
-							<div class="col-md-6">
-								<div class="input-group">
-									<i class="fa-regular fa-envelope fa-lg form-icon"></i>
-									<input id="email" type="email" class="form-control input-text js-input @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-									<label class="label" for="email">Email Address</label>
-	
-									@error('email')
-										<span class="invalid-feedback" role="alert">
-											<strong>{{ $message }}</strong>
-										</span>
-									@enderror
-								</div>
-							</div>
-						</div>
-
-						<div class="row mb-4 justify-content-center">
-							<div class="col-md-6">
-								<div class="input-group">
-									<i class="fa-solid fa-key fa-lg form-icon"></i>
-									<input id="password" type="password" class="form-control input-text js-input @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-									<label class="label" for="password">Password</label>
-	
-									@error('password')
-										<span class="invalid-feedback" role="alert">
-											<strong>{{ $message }}</strong>
-										</span>
-									@enderror
+									<label class="label" for="name">{{ __('お名前') }}</label>
 								</div>
 							</div>
 						</div>
 
 						<div class="row mb-5 justify-content-center">
-							<div class="col-md-6">
+							<div class="col">
 								<div class="input-group">
-									<i class="fa-solid fa-key fa-lg form-icon"></i>
-									<input id="password-confirm" type="password" class="form-control input-text js-input" name="password_confirmation" required autocomplete="new-password">
-									<label class="label" for="password-confirm">Confirm Password</label>
+									<i class="fa-regular fa-envelope fa-lg form-icon"></i>
+									<input id="email" type="email" class="form-control input-text js-input @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+									<label class="label" for="email">{{ __('メールアドレス') }}</label>
+								</div>
+							</div>
+						</div>
+
+						<div class="row mb-5 justify-content-center">
+							<div class="col">
+								<div class="input-group">
+									<i class="fa-regular fa-comments fa-lg form-icon"></i>
+									<textarea id="message" type="text" class="form-control input-text js-input @error('message') is-invalid @enderror" name="message" required autocomplete="コンテンツ" placeholder="" autofocus>{{ old('message') }}</textarea>
+									<label class="label label-body" for="message">{{ __('お問い合わせ内容') }}</label>	
 								</div>
 							</div>
 						</div>
 
 						<div class="row mb-0 justify-content-center">
 							<div class="col-auto">
-								<button type="submit" class="btn btn-outline-dark">
-									{{ __('登録') }}
+								<button type="submit" class="btn btn-outline-dark" onclick="return confirm('入力内容で送信してよろしいですか？')">
+									{{ __('送　信') }}
 								</button>
 							</div>
 						</div>

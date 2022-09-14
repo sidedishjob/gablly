@@ -1,0 +1,11 @@
+/* contact */
+textarea.input-text {
+	resize: none;
+	height: 30vh;
+}
+
+/* テキストエリアのラベル位置調整 */
+.input-text:focus + .label-body, .input-text.not-empty + .label-body {
+	transform: translateY(-29vh);
+}
+/* テキストエリアのラベル位置調整 */

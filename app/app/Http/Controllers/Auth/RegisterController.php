@@ -9,6 +9,7 @@ use App\Rules\alpha_num_hyphen_underScore_dot_check;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class RegisterController extends Controller
 {
@@ -51,8 +52,8 @@ class RegisterController extends Controller
 	protected function validator(array $data)
 	{
 		return Validator::make($data, [
-			'user_name' => ['required','string', 'min:4', 'max:30', new alpha_num_hyphen_underScore_dot_check()],
-			'email' => ['required', 'string', 'email', 'max:100', 'unique:users'],
+			'user_name' => ['required','string', 'min:4', 'max:30', new alpha_num_hyphen_underScore_dot_check(), Rule::unique('users', 'user_name')->whereNull('deleted_at')],
+			'email' => ['required', 'string', 'email', 'max:100', Rule::unique('users', 'email')->whereNull('deleted_at')],
 			'password' => ['required', 'string', 'min:8', 'max:100', 'confirmed'],
 		]);
 	}
@@ -69,6 +70,7 @@ class RegisterController extends Controller
 			'user_name' => $data['user_name'],
 			'email' => $data['email'],
 			'password' => Hash::make($data['password']),
+			'version' => 0,
 		]);
 	}
 }

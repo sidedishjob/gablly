@@ -1,5 +1,4 @@
 /* login */
-/* @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css); */
 
 /* 鍵ロゴ */
 .login-text {
@@ -8,8 +7,7 @@
 	max-width: 50%;
 	font-size: 1.5rem;
 	text-align: center;
-	text-shadow: 12px 10px 0 rgba(0,0,0,0.3);
-	color: #888;
+	text-shadow: 12px 10px 0 rgba(0,0,0,0.5);
 }
 
 /* ログイン保持ボタン_レイアウト */
@@ -25,11 +23,10 @@ form .btn-link {
 form .btn-text {
 	display: inline-block;
 	text-decoration: underline;
-	color: #000;
+	color: rgba(0, 0, 0, 1);
 	transition: .25s;
 }
 form .btn-text:hover {
-	color: rgb(130, 130, 130);
+	color: rgba(130, 130, 130, 1);
 	transform: rotateX(360deg);
 }
-

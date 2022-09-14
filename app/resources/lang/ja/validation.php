@@ -80,7 +80,7 @@ return [
 	],
 	'max'                  => [
 		'numeric' => ':attributeには、:max以下の数字を指定してください。',
-		'file'    => ':attributeには、:max kB以下のファイルを指定してください。',
+		'file'    => ':attributeには、10MB以下のファイルを指定してください。',
 		'string'  => ':attributeは、:max文字以下で指定してください。',
 		'array'   => ':attributeは:max個以下指定してください。',
 	],
@@ -157,6 +157,11 @@ return [
 		'user_name' => 'ユーザー名',
 		'password' => 'パスワード',
 		'email' => 'メールアドレス',
+		'name' => 'お名前',
+		'message' => 'お問い合わせ内容',
+		'title' => 'タイトル',
+		'body' => 'コンテンツ',
+		'image_path' => '画像',
 	],
 
 	'alpha_dot_underBar_check' => ':attribute は半角英数字及びダッシュ(-)及び下線(_)及びドット(.)がご利用できます。',

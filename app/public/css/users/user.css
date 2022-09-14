@@ -1,21 +1,50 @@
 .box {
-	min-height: 260px;
+	min-height: 200px;
 }
 
-.pass-change {
+.pass-change, .user-delete {
 	display: none;
 }
 
-.box-tab {
-	color: white;
+.nav-tabs {
+	border-bottom: 1px solid rgba(144, 144, 144, 1);
+}
+
+/* タブ（プロフィール編集&パスワード更新） */
+.nav-tabs .box-tab {
+	color: rgba(0, 0, 0, 1);
 	transition: .3s;
 }
-.box-tab:hover {
-	color: black;
+.nav-tabs .box-tab:hover {
+	color: rgba(0, 0, 0, 0.3);
 	background-color: rgba(144, 144, 144, 0.5);
-	box-shadow: 0 0 0 0.25rem rgb(144 144 144 / 25%);
+	box-shadow: 0 0 0 0.25rem rgba(144, 144, 144, 0.25);
 }
-.box-tab:focus {
-	color: black;
-	box-shadow: none;
+.nav-tabs .box-tab:focus {
+	color: rgba(0, 0, 0, 0.3);
+	box-shadow: 0 0 0 0.25rem rgba(144, 144, 144, 0.25);
 }
+.nav-tabs .box-tab.active {
+	color: white;
+    background-color: rgba(0,0,0,0.5)
+}
+/* タブ（プロフィール編集&パスワード更新） */
+
+/* タブ（アカウント削除） */
+.nav-tabs .user-delete-tab {
+	color: rgba(128, 0, 0, 1);
+}
+.nav-tabs .user-delete-tab:hover {
+	color: rgba(255, 0, 0, 1);
+	background-color: rgba(148, 87, 87, 0.5);
+	box-shadow: 0 0 0 0.25rem rgba(134, 70, 70, 0.25);
+}
+.nav-tabs .user-delete-tab:focus {
+	color: rgba(255, 0, 0, 1);
+	box-shadow: 0 0 0 0.25rem rgba(134, 70, 70, 0.25);
+}
+.nav-tabs .user-delete-tab.active {
+	background-color: rgba(255, 0, 0, 1);
+	color: rgba(255, 255, 255, 1);
+}
+/* タブ（アカウント削除） */
