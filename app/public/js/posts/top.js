@@ -3,6 +3,7 @@
 // スライダー用JS
 // 画像スライダー
 const mySpeed = 20000;
+// const mySpeed = 2000000;
 const slideLength = document.querySelectorAll('.card .swiper-slide').length;
 
 const changeTranslate = (swiper) => {
@@ -42,7 +43,7 @@ const initSwiper = () => {
 };
 
 window.addEventListener('load', function(){
-  initSwiper();
+	initSwiper();
 });
 // スライダー用JS
 

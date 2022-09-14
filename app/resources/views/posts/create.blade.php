@@ -58,10 +58,12 @@
 
 							<div class="col-6 mb-5 justify-content-center">
 								<div class="mt-3 input-group">
+									<i class="fa-regular fa-image fa-lg form-icon"></i>
 									<input id="title" type="text" class="form-control input-text js-input @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}" required autocomplete="title" placeholder="" autofocus>
 									<label class="label" for="title">{{ __('タイトル') }}</label>
 								</div>
 								<div class="input-group">
+									<i class="fa-regular fa-keyboard fa-lg form-icon"></i>
 									<textarea id="body" type="text" class="form-control input-text js-input @error('body') is-invalid @enderror" name="body" value="{{ old('body') }}" required autocomplete="コンテンツ" placeholder="" autofocus></textarea>
 									<label class="label label-body" for="body">{{ __('コンテンツ') }}</label>
 								</div>

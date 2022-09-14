@@ -37,9 +37,9 @@ textarea.input-text {
 	width: auto;
 }
 
-.text-title {
+/* .text-title {
 	text-align: center;
-}
+} */
 
 /* 設定値定義 */
 :root {
@@ -105,14 +105,14 @@ textarea.input-text {
 }
 .card .slide {
 	overflow: hidden;
-	width: 15em;
+	width: 20em;
 	background-color: rgba(221, 213, 213, 0.1);
 	border-radius: 4px;
 	-webkit-box-shadow: var(--box-shadow);
 			box-shadow: var(--box-shadow);
 }
 .card .slide-media {
-	padding-top: 80%;
+	padding-top: 85%;
 }
 .card .slide-media img {
 	object-fit: contain;
@@ -128,6 +128,7 @@ textarea.input-text {
 }
 .card .slide-title {
 	line-height: 1.6;
+	letter-spacing: 5px;
 	display: -webkit-box;
 	overflow: hidden;
 	-webkit-line-clamp: 3;
@@ -139,6 +140,7 @@ textarea.input-text {
 	padding: 0;
 }
 
+/* タブレット & PC .card .slide */
 @media screen and (min-width: 576px) {
 	.card .slide {
 	width: 25rem;
@@ -192,6 +194,7 @@ textarea.input-text {
 	white-space: pre-wrap;
 	height: 14.3em;	
 }
+/* タブレット & PC .slide-body */
 @media screen and (min-width: 576px) {
 	.slide-body {
 		white-space: pre-wrap;

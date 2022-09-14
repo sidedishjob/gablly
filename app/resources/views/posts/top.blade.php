@@ -4,12 +4,10 @@
 @endsection
 @section('js')
 <script src="{{ asset('js/posts/top.js') }}" defer></script>
-<!-- CDN読み込み -->
-<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+<script src="{{ asset('js/posts/swiper-bundle.min.js') }}" defer></script>
 @endsection
 @section('css')
-<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-<!-- CDN読み込み -->
+<link href="{{ asset('css/posts/swiper-bundle.min.css') }}" rel="stylesheet">
 <link href="{{ asset('css/posts/post.css')}}" rel="stylesheet">
 @endsection
 
@@ -34,7 +32,7 @@
 													<img src="{{ asset($post->image_path) }}" alt="Phot by {{ ($post->title) }} @if(isset( $post->created_at )) on {{ ($post->created_at->format('y-m-d')) }} @endif .">
 												</div>
 												<div class="slide-content">
-													<h2 class="slide-title text-title fs-5 fw-bold mt-4">{{ __($post->title) }}</h2>
+													<h2 class="slide-title text-center fs-5 fw-bold mt-4">{{ __($post->title) }}</h2>
 												</div>
 											</div>
 											<!-- Front -->

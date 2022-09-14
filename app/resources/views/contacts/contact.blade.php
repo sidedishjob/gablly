@@ -60,7 +60,7 @@
 						<div class="row mb-5 justify-content-center">
 							<div class="col">
 								<div class="input-group">
-									<i class="fa-solid fa-comments fa-lg form-icon"></i>
+									<i class="fa-regular fa-comments fa-lg form-icon"></i>
 									<textarea id="message" type="text" class="form-control input-text js-input @error('message') is-invalid @enderror" name="message" required autocomplete="コンテンツ" placeholder="" autofocus>{{ old('message') }}</textarea>
 									<label class="label label-body" for="message">{{ __('お問い合わせ内容') }}</label>	
 								</div>

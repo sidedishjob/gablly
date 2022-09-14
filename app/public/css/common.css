@@ -1,6 +1,5 @@
 /* 共通設定 */
-@import url(https://use.fontawesome.com/releases/v5.3.1/css/all.css);
-
+@import url('https://use.fontawesome.com/releases/v5.3.1/css/all.css');
 /* common */
 * {
 	margin: 0px;
@@ -22,7 +21,11 @@
 
 body {
 	position: relative;
-	background-image: url(../image/sky.jpg);
+	/* background-image: url(../image/top_bg.jpg); */
+	background: linear-gradient(rgba(255,255,255,0) 0, rgba(255, 255, 255, 1) 90%), url(../image/top_bg.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 50%;
 	font-family: 'ヒラギノ明朝 Pro W3', 'Hiragino Mincho Pro', '游明朝','Yu Mincho', '游明朝体', 'YuMincho','ＭＳ Ｐ明朝', 'MS PMincho', serif;
 }
 
@@ -33,7 +36,7 @@ li {
 a, a:hover {
 	display: inline-block;
 	text-decoration: none;
-	color: rgba(255, 255, 255, 1);
+	color: rgba(0, 0, 0, 1);
 }
 
 img {
@@ -112,7 +115,7 @@ img {
 /* ハンバーガーメニューから切り替わるタイミング */
 @media screen and (min-width:768px) {
 	.card {
-		margin-top: 15%;
+		margin-top: 20%;
 	}
 }
 
@@ -149,7 +152,7 @@ img {
 .form-icon {
 	display: flex;
 	align-items: center;
-	color: rgba(136, 136, 136, 1);
+	/* color: rgba(136, 136, 136, 1); */
 }
 /* + アイコン位置 */
 
@@ -157,7 +160,7 @@ img {
 /* 入力欄 */
 .form-control {
 	background-color: transparent;
-	border-bottom: 2px solid rgba(136, 136, 136, 1);
+	border-bottom: 2px solid rgba(0, 0, 0, 0.5);
 	/* 初期設定の枠線消去 */
 	border-top: none;
 	border-left: none;
@@ -177,7 +180,6 @@ img {
 	width: 100%;
 	height: 36px;
 	border-width: 0 0 2px 0;
-	font-family: Lusitana, serif;
 	font-size: 18px;
 	line-height: 26px;
 	font-weight: 400;
@@ -192,9 +194,8 @@ img {
 	position: absolute;
 	left: 50px;
 	bottom: 8px;
-	font-family: Lusitana, serif;
 	font-size: 16px;
-	color: rgba(136, 136, 136, 1);
+	color: rgba(0, 0, 0, 1);
 	cursor: text;
 	transition: transform 0.2s ease-in-out;
 }
@@ -210,7 +211,7 @@ img {
 	transition: .25s;
 }
 .btn-text:hover  {
-	color: rgb(130, 130, 130);
+	color: rgb(90, 90, 90);
 	transform: rotateX(360deg);
 }
 /* 文字反転 */

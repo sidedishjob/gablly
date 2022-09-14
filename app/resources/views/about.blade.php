@@ -103,9 +103,9 @@
 		</div>
 		<div class="link-item">
 			@guest
-				<a class="btn" href="{{ route('register') }}">{{ __('会員登録 ▶') }}</a>
+				<a class="btn" href="{{ route('register') }}">{{ __('START ▶') }}</a>
 			@else
-				<a class="btn" href="#">{{ __('会員登録 ▶') }}</a>
+				<a class="btn" href="#">{{ __('START ▶') }}</a>
 			@endguest
 		</div>
 	</div>

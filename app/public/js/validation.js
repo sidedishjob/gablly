@@ -139,9 +139,9 @@ function postCheck() {
 	}
 
 	//文字数チェック
-	if (title.value.length > maxLength50) {
+	if (title.value.length > maxLength30) {
 		//最大:タイトル
-		createError(title, 'タイトルは、' + maxLength50 + maxLengthMessage);
+		createError(title, 'タイトルは、' + maxLength30 + maxLengthMessage);
 		isError = true;
 	}
 	if (body.value.length > maxLength1000) {

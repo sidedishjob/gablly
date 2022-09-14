@@ -2,6 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
 	<meta charset="utf-8">
+	<meta name="description" content="gablly であなただけの記憶の美術館を作ってみましょう">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- CSRF Token -->
@@ -19,7 +20,7 @@
 	<script src="https://kit.fontawesome.com/235a170713.js" crossorigin="anonymous"></script>
 
 	<!-- Fonts -->
-	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link href="//fonts.gstatic.com" rel="dns-prefetch">
 	<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
 	<!-- favicon -->
@@ -37,7 +38,7 @@
 		<!-- header -->
 		<nav id="header-nav" class="navbar navbar-expand-md navbar-light header-about">
 			<div class="container">
-				<a class="fw-bold fs-2 text-white navbar-brand" href="{{ route('top') }}">
+				<a class="fw-bold fs-2 navbar-brand" href="{{ route('top') }}">
 					{{ config('app.name', 'gablly') }}
 				</a>
 

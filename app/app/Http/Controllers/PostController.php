@@ -65,7 +65,7 @@ class PostController extends Controller
 		//入力チェック
 		$validator = Validator::make($request->all(), [
 			'image_path' => ['required', 'max:10240'],
-			'title' => ['required', 'string', 'max:50'],
+			'title' => ['required', 'string', 'max:30'],
 			'body' => ['required', 'string', 'max:1000'],
 		]);
 
