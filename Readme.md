@@ -5,7 +5,7 @@
 「あなただけの記憶の美術館」をコンセプトに、自分専用の美術館を作れるアプリケーション。
 
 ## URL
-https://gablly.art/
+https://gablly.design/
 
 ## テスト用アカウント
 ユーザー名 : gablly_test
