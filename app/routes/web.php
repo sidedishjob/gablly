@@ -40,3 +40,8 @@ Route::post('users/update', [UserController::class, 'updateOrChangeOrDelete'])->
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 //お問い合わせメール送信
 Route::post('/contact/thanks', [ContactController::class, 'send'])->name('contact.send');
+
+//公開日前（comming soon表示）
+Route::get('/before', function() {
+	return view('before');
+})->name('before');
