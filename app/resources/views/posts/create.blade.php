@@ -48,7 +48,7 @@
 						<div class="row">
 							<div class="col-6 mb-0 jusify-content-center d-flex align-items-center">
 								<div class="input-group">
-									<img id="image_prev" src="{{ asset('/image/no_image.png') }}">
+									<img id="image_prev" src="{{ asset('/image/12_no_image.png') }}">
 									<label class="upload-label btn btn-outline-dark">
 										{{ __('画像を選択') }}
 										<input id="image_path" type="file" accept="image/*"  name="image_path">
@@ -56,7 +56,7 @@
 								</div>
 							</div>
 
-							<div class="col-6 mb-5 justify-content-center">
+							<div class="col-6 justify-content-center">
 								<div class="mt-3 input-group">
 									<i class="fa-regular fa-image fa-lg form-icon"></i>
 									<input id="title" type="text" class="form-control input-text js-input @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}" required autocomplete="title" placeholder="" autofocus>

@@ -114,6 +114,12 @@ textarea.input-text {
 .card .slide-media {
 	padding-top: 85%;
 }
+/* タブレット & PC .card .slide */
+@media screen and (min-width: 576px) {
+	.card .slide-media {
+		padding-top: 65%;
+	}
+}
 .card .slide-media img {
 	object-fit: contain;
 }
@@ -143,7 +149,13 @@ textarea.input-text {
 /* タブレット & PC .card .slide */
 @media screen and (min-width: 576px) {
 	.card .slide {
-	width: 25rem;
+		width: 18rem;
+	}
+}
+/* ハンバーガーメニューから切り替わるタイミング */
+@media screen and (min-width:768px) {
+	.card .slide {
+		width: 25rem;
 	}
 }
 
@@ -198,7 +210,13 @@ textarea.input-text {
 @media screen and (min-width: 576px) {
 	.slide-body {
 		white-space: pre-wrap;
-		height: 23em;	
+		height: 15em;
+	}
+}
+/* ハンバーガーメニューから切り替わるタイミング */
+@media screen and (min-width:768px) {
+	.slide-body {
+		height: 19em;	
 	}
 }
 .slide-link {
