@@ -73,11 +73,19 @@
 </section>
 
 <section id="box3" class="box">
-	<div class="container">
-		<div class="door-container">
-			<div class="door-item">
-				<img src="{{ asset('image/about_door.png') }}" alt="door">
+	<div class="container justify-content-center">
+		<div class="text-item -demo-text-1">
+			<p>
+				<span class="fs-5">{{ __('---好みの写真を投稿できます---')}}</span>
+			</p>
+		</div>
+		<div class="demo-container">
+			<div class="demo-item">
+				<img src="{{ asset('image/03_about_demo.png') }}" alt="door">
 			</div>
+		</div>
+		<div class="link-item">
+			<a class="btn" href="{{ route('demo') }}">{{ __('デモを見る ⇢') }}</a>
 		</div>
 	</div>
 </section>
@@ -90,22 +98,20 @@
 				{{ __('あなたの完全オリジナル') }}<br><br>
 				{{ __('あなたにしか作れない') }}<br><br>
 				{{ __('あなたの記憶を表現した美術館') }}<br><br>
-				{{ __('人生のギャラリー') }}<br><br>
-				{{ __('etc...') }}
+				{{ __('人生のギャラリー') }}
 			</p>
 			<p>
-				{{ __('山  人  絵  植物  食  建築') }}<br><br>
-				{{ __('どんな展示にしてもいい') }}
+				{{ __('山  人  絵  植物  食  建築') }}
 			</p>
 			<p>
-				{{ __('統一されているのもよし、バラバラでもよし') }}
+				{{ __('統一されていても　不揃いでも') }}
 			</p>
 		</div>
 		<div class="link-item">
 			@guest
-				<a class="btn" href="{{ route('register') }}">{{ __('START ▶') }}</a>
+				<a class="btn" href="{{ route('register') }}">{{ __('START ⇢') }}</a>
 			@else
-				<a class="btn" href="#">{{ __('START ▶') }}</a>
+				<a class="btn" href="#">{{ __('START ⇢') }}</a>
 			@endguest
 		</div>
 	</div>

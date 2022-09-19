@@ -29,7 +29,7 @@
 											<!-- Front -->
 											<div class="slide-front slide-front-item-{{$post->id}}">
 												<div class="slide-media img-cover">
-													<img src="{{ asset($post->image_path) }}" alt="Phot by {{ ($post->title) }} @if(isset( $post->created_at )) on {{ ($post->created_at->format('y-m-d')) }} @endif .">
+													<img src="{{ asset($post->image_path) }}" alt="Phot by {{ __($post->title) }}@if(isset( $post->created_at )) on {{ ($post->created_at->format('y-m-d')) }}@endif.">
 												</div>
 												<div class="slide-content">
 													<h2 class="slide-title text-center fs-5 fw-bold mt-4">{{ __($post->title) }}</h2>
@@ -44,7 +44,7 @@
 												</div>
 												<div class="slide-link">
 													<a href="{{ route('posts.edit', ['id' => $post->id]) }}" class="swiper-slide">
-														{{ __('投稿編集 ▶') }}
+														{{ __('投稿編集 →') }}
 													</a>
 												</div>
 											</div>

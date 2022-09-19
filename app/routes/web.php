@@ -26,6 +26,11 @@ Route::get('/about', function() {
 	return view('about');
 })->name('about');
 
+//デモ画面表示
+Route::get('/demo', function() {
+	return view('demo');
+})->name('demo');
+
 //投稿（一覧、作成、更新）
 Route::resource('posts', PostController::class, ['only' => ['index', 'create', 'store']])->middleware('verified');
 Route::get('posts/edit/{id}', [PostController::class, 'edit'])->name('posts.edit');
