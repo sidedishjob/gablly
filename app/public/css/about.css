@@ -161,7 +161,6 @@ body {
 }
 
 .demo-item {
-	background: url(../image/demo_top.png);
 	position: absolute;
 	top: 35%;
 	width: 98%;
